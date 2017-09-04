@@ -1,0 +1,31 @@
+TITLE:
+Maximum Likelihood Estimation with Auxiliary Variables
+Only Manifest Variables (No Latent Variables)
+AUXILIARY Subcommand
+
+DATA:
+! Read in the raw data.
+file = example.dat;
+
+VARIABLE:
+names = efficacy bmi distance bodyfat;
+! Select the variables used in the analysis.  Omit the auxiliary variables
+! from the USEVARIABLES subcommand.
+usevariables = efficacy bmi;
+! Incorporate auxiliary variables using the saturated correlates model.
+auxiliary = (m) distance bodyfat;
+! Specify the missing value code.
+missing = all(-99);
+
+ANALYSIS:
+! Specify full information maximum likelihood estimation.
+estimator = ml;
+
+MODEL:
+bmi on efficacy;
+! Estimate the variances and covariances between the incomplete exogenous
+! variables (which is not applicable here because self-efficacy is complete)
+! to apply distributional assumptions to the incomplete exogenous variables.
+
+OUTPUT:
+standardized (stdyx);

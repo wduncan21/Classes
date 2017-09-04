@@ -1,0 +1,16 @@
+ outcome   permeability
+ fullterm  0.80
+ fullterm  0.83
+ fullterm  1.89
+ fullterm  1.04
+ fullterm  1.45
+ fullterm  1.38
+ fullterm  1.91
+ fullterm  1.64
+ fullterm  0.73
+ fullterm  1.46
+ aborted   1.15
+ aborted   0.88
+ aborted   0.90
+ aborted   0.74
+ aborted   1.21

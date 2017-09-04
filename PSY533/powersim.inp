@@ -1,0 +1,18 @@
+TITLE: power calculation example--four variable path model
+MONTECARLO: NAMES ARE Y1 Y2 Y3 X1;
+           NOBSERVATIONS = 200;
+           NREPS = 100000;
+           SEED = 4567;
+MODEL POPULATION:
+   Y1 on X1@.6;
+       Y2 on Y1@.3; Y3 on Y1@.3 X1@.2;
+       X1@1.0; Y1@.5; Y2@.5 Y3@.5;
+       Y2 with Y3@.1;
+ANALYSIS: TYPE IS general;
+    ESTIMATOR IS ML;
+MODEL: 
+     Y1 on X1;
+     Y2 on Y1;
+     Y3 on Y1 X1;  Y2 with Y3;
+OUTPUT:
+	TECH9;

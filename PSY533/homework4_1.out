@@ -1,0 +1,381 @@
+Mplus VERSION 6.12
+MUTHEN & MUTHEN
+04/20/2014  12:00 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE: CESD data from Gregorich(2006) Configural
+  DATA: FILE = "B:\dropbox\class\CESD_WBdata.dat";
+        TYPE IS means cova;
+        NGROUPS = 2;
+        NOBSERVATIONS = 2004 248;
+  VARIABLE: NAMES ARE CESD1 CESD2 CESD7 CESD11 CESD20;
+  ANALYSIS: TYPE = MGROUP;
+            ITERATIONS=3000;
+            ESTIMATOR=ML;
+  MODEL:    F1 BY CESD1@1 CESD2 CESD7 CESD11 CESD20;
+            [CESD1 CESD2@0 CESD7 CESD11 CESD20];
+  MODEL G1: [F1];
+  MODEL G2: F1 BY CESD1@1 CESD2 CESD7 CESD11 CESD20;
+            [CESD1 CESD2@0 CESD7 CESD11 CESD20];
+            [F1];
+  OUTPUT: sampstat residual;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+CESD data from Gregorich(2006) Configural
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 2
+Number of observations
+   Group G1                                                   2004
+   Group G2                                                    248
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Continuous
+   CESD1       CESD2       CESD7       CESD11      CESD20
+
+Continuous latent variables
+   F1
+
+
+Estimator                                                       ML
+Information matrix                                        EXPECTED
+Maximum number of iterations                                  3000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+
+Input data file(s)
+  B:\dropbox\class\CESD_WBdata.dat
+
+Input data format  FREE
+
+
+SAMPLE STATISTICS
+
+
+     SAMPLE STATISTICS FOR G1
+
+
+           Means/Intercepts/Thresholds
+              CESD1         CESD2         CESD7         CESD11        CESD20
+              ________      ________      ________      ________      ________
+      1         0.328         0.240         0.486         0.612         0.437
+
+
+           Covariances/Correlations/Residual Correlations
+              CESD1         CESD2         CESD7         CESD11        CESD20
+              ________      ________      ________      ________      ________
+ CESD1          0.498
+ CESD2          0.126         0.427
+ CESD7          0.200         0.178         0.765
+ CESD11         0.182         0.170         0.273         0.823
+ CESD20         0.166         0.162         0.318         0.241         0.631
+
+
+     SAMPLE STATISTICS FOR G2
+
+
+           Means/Intercepts/Thresholds
+              CESD1         CESD2         CESD7         CESD11        CESD20
+              ________      ________      ________      ________      ________
+      1         0.351         0.347         0.806         0.589         0.456
+
+
+           Covariances/Correlations/Residual Correlations
+              CESD1         CESD2         CESD7         CESD11        CESD20
+              ________      ________      ________      ________      ________
+ CESD1          0.496
+ CESD2          0.169         0.576
+ CESD7          0.194         0.173         1.290
+ CESD11         0.141         0.131         0.317         0.875
+ CESD20         0.188         0.125         0.344         0.265         0.662
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       30
+
+Loglikelihood
+
+          H0 Value                      -12475.037
+          H1 Value                      -12462.610
+
+Information Criteria
+
+          Akaike (AIC)                   25010.073
+          Bayesian (BIC)                 25181.660
+          Sample-Size Adjusted BIC       25086.345
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                             24.852
+          Degrees of Freedom                    10
+          P-Value                           0.0056
+
+Chi-Square Contributions From Each Group
+
+          G1                                15.967
+          G2                                 8.885
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.036
+          90 Percent C.I.                    0.019  0.055
+          Probability RMSEA <= .05           0.885
+
+CFI/TLI
+
+          CFI                                0.991
+          TLI                                0.982
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           1683.907
+          Degrees of Freedom                    20
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.017
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group G1
+
+ F1       BY
+    CESD1              1.000      0.000    999.000    999.000
+    CESD2              0.930      0.064     14.635      0.000
+    CESD7              1.679      0.100     16.761      0.000
+    CESD11             1.389      0.091     15.245      0.000
+    CESD20             1.476      0.089     16.609      0.000
+
+ Means
+    F1                 0.258      0.024     10.933      0.000
+
+ Intercepts
+    CESD1              0.070      0.026      2.675      0.007
+    CESD2              0.000      0.000    999.000    999.000
+    CESD7              0.053      0.037      1.410      0.158
+    CESD11             0.254      0.035      7.316      0.000
+    CESD20             0.056      0.033      1.688      0.091
+
+ Variances
+    F1                 0.121      0.012      9.897      0.000
+
+ Residual Variances
+    CESD1              0.376      0.014     27.601      0.000
+    CESD2              0.322      0.012     27.552      0.000
+    CESD7              0.422      0.020     21.241      0.000
+    CESD11             0.588      0.022     26.622      0.000
+    CESD20             0.366      0.016     22.353      0.000
+
+Group G2
+
+ F1       BY
+    CESD1              1.000      0.000    999.000    999.000
+    CESD2              0.838      0.199      4.219      0.000
+    CESD7              1.760      0.343      5.137      0.000
+    CESD11             1.340      0.271      4.947      0.000
+    CESD20             1.492      0.277      5.383      0.000
+
+ Means
+    F1                 0.414      0.114      3.642      0.000
+
+ Intercepts
+    CESD1             -0.063      0.118     -0.535      0.593
+    CESD2              0.000      0.000    999.000    999.000
+    CESD7              0.077      0.201      0.385      0.700
+    CESD11             0.034      0.157      0.216      0.829
+    CESD20            -0.162      0.163     -0.994      0.320
+
+ Variances
+    F1                 0.125      0.037      3.373      0.001
+
+ Residual Variances
+    CESD1              0.369      0.040      9.206      0.000
+    CESD2              0.486      0.048     10.126      0.000
+    CESD7              0.897      0.104      8.652      0.000
+    CESD11             0.646      0.071      9.157      0.000
+    CESD20             0.380      0.055      6.954      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.132E-03
+       (ratio of smallest to largest eigenvalue)
+
+
+RESIDUAL OUTPUT
+
+
+     ESTIMATED MODEL AND RESIDUALS (OBSERVED - ESTIMATED) FOR G1
+
+
+           Model Estimated Means/Intercepts/Thresholds
+              CESD1         CESD2         CESD7         CESD11        CESD20
+              ________      ________      ________      ________      ________
+      1         0.328         0.240         0.486         0.612         0.437
+
+
+           Residuals for Means/Intercepts/Thresholds
+              CESD1         CESD2         CESD7         CESD11        CESD20
+              ________      ________      ________      ________      ________
+      1         0.000         0.000         0.000         0.000         0.000
+
+
+           Standardized Residuals (z-scores) for Means/Intercepts/Thresholds
+              CESD1         CESD2         CESD7         CESD11        CESD20
+              ________      ________      ________      ________      ________
+      1         0.000         0.000         0.000         0.000         0.000
+
+
+           Normalized Residuals for Means/Intercepts/Thresholds
+              CESD1         CESD2         CESD7         CESD11        CESD20
+              ________      ________      ________      ________      ________
+      1         0.000         0.000         0.000         0.000         0.000
+
+
+           Model Estimated Covariances/Correlations/Residual Correlations
+              CESD1         CESD2         CESD7         CESD11        CESD20
+              ________      ________      ________      ________      ________
+ CESD1          0.498
+ CESD2          0.113         0.427
+ CESD7          0.204         0.190         0.765
+ CESD11         0.169         0.157         0.283         0.823
+ CESD20         0.179         0.167         0.301         0.249         0.631
+
+
+           Residuals for Covariances/Correlations/Residual Correlations
+              CESD1         CESD2         CESD7         CESD11        CESD20
+              ________      ________      ________      ________      ________
+ CESD1          0.000
+ CESD2          0.013         0.000
+ CESD7         -0.004        -0.012         0.000
+ CESD11         0.013         0.013        -0.010         0.000
+ CESD20        -0.013        -0.005         0.017        -0.008         0.000
+
+
+           Standardized Residuals (z-scores) for Covariances/Correlations/Residual Corr
+              CESD1         CESD2         CESD7         CESD11        CESD20
+              ________      ________      ________      ________      ________
+ CESD1        999.000
+ CESD2          1.965         0.000
+ CESD7         -0.665        -2.191         0.000
+ CESD11         1.528         1.627        -1.499         0.000
+ CESD20        -2.355        -0.891         3.459        -1.183         0.000
+
+
+           Normalized Residuals for Covariances/Correlations/Residual Correlations
+              CESD1         CESD2         CESD7         CESD11        CESD20
+              ________      ________      ________      ________      ________
+ CESD1          0.000
+ CESD2          1.220         0.000
+ CESD7         -0.272        -0.874         0.000
+ CESD11         0.894         0.949        -0.549         0.000
+ CESD20        -1.014        -0.388         0.997        -0.470         0.000
+
+
+     ESTIMATED MODEL AND RESIDUALS (OBSERVED - ESTIMATED) FOR G2
+
+
+           Model Estimated Means/Intercepts/Thresholds
+              CESD1         CESD2         CESD7         CESD11        CESD20
+              ________      ________      ________      ________      ________
+      1         0.351         0.347         0.806         0.589         0.456
+
+
+           Residuals for Means/Intercepts/Thresholds
+              CESD1         CESD2         CESD7         CESD11        CESD20
+              ________      ________      ________      ________      ________
+      1         0.000         0.000         0.000         0.000         0.000
+
+
+           Standardized Residuals (z-scores) for Means/Intercepts/Thresholds
+              CESD1         CESD2         CESD7         CESD11        CESD20
+              ________      ________      ________      ________      ________
+      1       999.000       999.000         0.000         0.000        -0.009
+
+
+           Normalized Residuals for Means/Intercepts/Thresholds
+              CESD1         CESD2         CESD7         CESD11        CESD20
+              ________      ________      ________      ________      ________
+      1         0.000         0.000         0.000         0.000         0.000
+
+
+           Model Estimated Covariances/Correlations/Residual Correlations
+              CESD1         CESD2         CESD7         CESD11        CESD20
+              ________      ________      ________      ________      ________
+ CESD1          0.494
+ CESD2          0.105         0.574
+ CESD7          0.220         0.185         1.285
+ CESD11         0.168         0.141         0.296         0.871
+ CESD20         0.187         0.157         0.329         0.251         0.659
+
+
+           Residuals for Covariances/Correlations/Residual Correlations
+              CESD1         CESD2         CESD7         CESD11        CESD20
+              ________      ________      ________      ________      ________
+ CESD1          0.000
+ CESD2          0.063         0.000
+ CESD7         -0.027        -0.012         0.000
+ CESD11        -0.027        -0.010         0.020         0.000
+ CESD20         0.000        -0.032         0.014         0.013         0.000
+
+
+           Standardized Residuals (z-scores) for Covariances/Correlations/Residual Corr
+              CESD1         CESD2         CESD7         CESD11        CESD20
+              ________      ________      ________      ________      ________
+ CESD1          0.000
+ CESD2          2.646       999.000
+ CESD7         -1.090        -0.376       999.000
+ CESD11        -1.214        -0.348         0.581       999.000
+ CESD20         0.023        -1.819         0.672         0.713         0.025
+
+
+           Normalized Residuals for Covariances/Correlations/Residual Correlations
+              CESD1         CESD2         CESD7         CESD11        CESD20
+              ________      ________      ________      ________      ________
+ CESD1          0.000
+ CESD2          1.786         0.000
+ CESD7         -0.524        -0.224         0.000
+ CESD11        -0.645        -0.224         0.288         0.000
+ CESD20         0.008        -0.807         0.219         0.263         0.000
+
+
+     Beginning Time:  00:00:33
+        Ending Time:  00:00:33
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2011 Muthen & Muthen

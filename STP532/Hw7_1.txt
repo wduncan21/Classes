@@ -1,0 +1,11 @@
+> normal<-c(3500,3500,3500,4000,4000,4000,4300,4500,4500,4900,5200,6000,6750,8000)
+> disease1<-c(5710,6110,8060,8080,11400)
+> disease2<-c(2930,3330,3580,3880,4280,5120)
+> disease3<-c(6320,6860,11400,14000)
+> disease4<-c(3230,3880,7640,7890,8280,16200,18250,29900)
+> combine<-list(normal,disease1,disease2,disease3,disease4)
+> pKW(combine,"exact")
+Ties are present, so p-values are based on conditional null distribution. 
+Group sizes:  14 5 6 4 8 
+Kruskal-Wallis H  Statistic:  16.6464 
+Monte Carlo  (Using  10000 Iterations) upper-tail probability:  3e-04 

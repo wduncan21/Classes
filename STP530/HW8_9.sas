@@ -1,0 +1,12 @@
+data contours;
+   format y 5.1;
+   do X1=-400 to 400 by 10;
+      do x2=-400 to 400 by 10;
+         y=25+3*x1+4*x2+1.5*x1*x2;
+         output;
+      end;
+   end;
+run;
+proc gcontour  data=contours;
+plot x1*x2=y ;
+run;

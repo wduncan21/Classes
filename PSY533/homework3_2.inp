@@ -1,0 +1,12 @@
+TITLE: Homework 3 two factor indep cluster (congeneric)
+DATA: FILE = "B:\dropbox\class\ANXM.DAT";
+VARIABLE: NAMES ARE i1-i20;
+	    USEVARIABLES ARE i2 i3 i4 i5 i6 i7 i8 i9 i10 i11 i14 i15 i16 i17 i18 i20 ;
+ANALYSIS: TYPE = GENERAL;
+          ITERATIONS=3000;
+          ESTIMATOR=ML;
+MODEL:    F1 BY i3 i4 i5 i6 i7 i14 i17 i20;
+          F2 BY i2 i8 i9 i10 i11 i15 i16 i18;
+OUTPUT: sampstat standardized residual mod(0) tech1;
+
+

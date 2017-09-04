@@ -1,0 +1,20 @@
+TITLE: WAISR Standardization data males higherorder opt 3
+DATA: FILE = jwaisrm.dat;
+VARIABLE: NAMES ARE sex, info digs voca arit comp simi
+            picc pica blkd obja digy;
+	    USEVARIABLES ARE info-digy;
+ANALYSIS: TYPE = GENERAL;
+          ITERATIONS=3000;
+          ESTIMATOR=ML;
+MODEL: f1 BY voca, info*.5, comp*.5 simi*.5;
+       f2 BY blkd, picc*.5, pica*.5, obja*.5;
+       f3 BY arit digs*.5 digy*.5;
+       f4 BY f2 f1 f3;
+       [info* digs* voca@0 arit@0 comp* simi* picc*
+        pica* blkd@0 obja* digy*]; 
+       [f1@0 f2* f3* f4];
+OUTPUT:  SAMPSTAT;
+         MODINDICES;
+         STAND;
+	   RES;
+	   TECH1;

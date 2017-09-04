@@ -1,0 +1,67 @@
+player   method   time
+ 1       round    5.40
+ 1       narrow   5.50
+ 1       wide     5.55
+ 2       round    5.85
+ 2       narrow   5.70
+ 2       wide     5.75
+ 3       round    5.20
+ 3       narrow   5.60
+ 3       wide     5.50
+ 4       round    5.55
+ 4       narrow   5.50
+ 4       wide     5.40
+ 5       round    5.90
+ 5       narrow   5.85
+ 5       wide     5.70
+ 6       round    5.45
+ 6       narrow   5.55
+ 6       wide     5.60
+ 7       round    5.40
+ 7       narrow   5.40
+ 7       wide     5.35
+ 8       round    5.45
+ 8       narrow   5.50
+ 8       wide     5.35
+ 9       round    5.25
+ 9       narrow   5.15
+ 9       wide     5.00
+10       round    5.85
+10       narrow   5.80
+10       wide     5.70
+11       round    5.25
+11       narrow   5.20
+11       wide     5.10
+12       round    5.65
+12       narrow   5.55
+12       wide     5.45
+13       round    5.60
+13       narrow   5.35
+13       wide     5.45
+14       round    5.05
+14       narrow   5.00
+14       wide     4.95
+15       round    5.50
+15       narrow   5.50
+15       wide     5.40
+16       round    5.45
+16       narrow   5.55
+16       wide     5.50
+17       round    5.55
+17       narrow   5.55
+17       wide     5.35
+18       round    5.45
+18       narrow   5.50
+18       wide     5.55
+19       round    5.50
+19       narrow   5.45
+19       wide     5.25
+20       round    5.65
+20       narrow   5.60
+20       wide     5.40
+21       round    5.70
+21       narrow   5.65
+21       wide     5.55
+22       round    6.30
+22       narrow   6.30
+22       wide     6.25

@@ -1,0 +1,13 @@
+TITLE: Bollen's union sentiment model p.83 omitted path
+DATA: FILE IS bollen_uniondat.txt;
+    TYPE IS cova;
+    NOBS IS 173;
+VARIABLE: NAMES ARE defman activ senti years age;
+ANALYSIS: TYPE IS general;
+         ESTIMATOR IS ml;
+MODEL: 
+   defman ON age;
+   activ ON defman ;
+   senti ON defman activ years;
+OUTPUT: 
+   sampstat stand res mod;

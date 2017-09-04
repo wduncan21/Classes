@@ -1,0 +1,19 @@
+TITLE: WAISR Standardization data males vs females metric inv congeneric
+DATA: FILE (males) = jwaisrm.dat;
+      FILE (females) = jwaisrf.dat;
+VARIABLE: NAMES ARE sex, info digs voca arit comp simi
+            picc pica blkd obja digy;
+	    USEVARIABLES ARE info voca comp simi picc pica blkd;
+ANALYSIS: TYPE = MGROUP MEANSTRUCTURE;
+          ITERATIONS=3000;
+          ESTIMATOR=ML;
+MODEL:    F1 BY info*.5 voca@1 comp*.5 simi*.5 ;
+          F2 by picc*.5 pica*.5 blkd@1;
+          [info voca@0 comp simi picc pica blkd@0];
+          F1*9 F2*9;
+MODEL males: [F1 F2];
+MODEL females: [info voca@0 comp simi picc pica blkd@0];
+          [F1 F2];
+OUTPUT: sampstat standardized residual tech1;
+
+

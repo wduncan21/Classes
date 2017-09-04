@@ -1,0 +1,10 @@
+> x <- c(12,44,34,14,9,19,156,23,13,11,47,26,14,33,15,62,5,8,0,154,146) 
+> y <- c(37,39,30,7,13,139,45,25,16,146,94,16,23,1,290,169,62,145,36,20,13) 
+newx<-x-median(x)
+newy<-y-median(y)
+> pAnsBrad(x,y)
+Ties are present, so p-values are based on conditional null distribution. 
+Number of X values:  21 Number of Y values:  21 
+Ansari-Bradley C  Statistic:  239.5 
+Monte Carlo  (Using  10000 Iterations) upper-tail probability:  0.3382 
+Monte Carlo  (Using  10000 Iterations) two-sided p-value:  0.6764 

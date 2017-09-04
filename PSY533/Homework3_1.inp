@@ -1,0 +1,35 @@
+TITLE: Homework 3 Single-Factor model
+DATA: FILE = "B:\dropbox\class\ANXM.DAT";
+VARIABLE: NAMES ARE i1-i20;
+	    USEVARIABLES ARE i2 i3 i4 i5 i6 i7 i8 i9 i10 i11 i14 i15 i16 i17 i18 i20 ;
+ANALYSIS: TYPE = GENERAL;
+          ITERATIONS=3000;
+          ESTIMATOR=ML;
+MODEL:    F1 BY i3 i4 i5 i6 i7 i14 i17 i20 i2 i8 i9 i10 i11 i15 i16 i18;
+OUTPUT:  standardized residual ;
+
+
+TITLE: Homework 3 two factor indep cluster (congeneric)
+DATA: FILE = "B:\dropbox\class\ANXM.DAT";
+VARIABLE: NAMES ARE i1-i20;
+	    USEVARIABLES ARE i2 i3 i4 i5 i6 i7 i8 i9 i10 i11 i14 i15 i16 i17 i18 i20 ;
+ANALYSIS: TYPE = GENERAL;
+          ITERATIONS=3000;
+          ESTIMATOR=ML;
+MODEL:    F1 BY i3 i4 i5 i6 i7 i14 i17 i20;
+          F2 BY i2 i8 i9 i10 i11 i15 i16 i18;
+OUTPUT:  standardized residual;
+
+
+TITLE: Homework 3 EFA
+DATA: FILE = "B:\dropbox\class\ANXM.DAT";
+VARIABLE: NAMES ARE i1-i20;
+	    USEVARIABLES ARE i1-i20;
+ANALYSIS: TYPE = GENERAL;
+          ITERATIONS=3000;
+          ESTIMATOR=ML;
+MODEL:    F1 BY i3 i4 i5 i6 i7 i14 i17 i20 i1*.5 i12*.5 i13*.5 i19*.5;
+          F2 BY i2 i8 i9 i10 i11 i15 i16 i18 i1*.5 i12*.5 i13*.5 i19*.5;
+		  F1@1 F2@1;
+OUTPUT:  standardized residual ;
+

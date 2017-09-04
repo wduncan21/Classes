@@ -1,0 +1,20 @@
+> x<-c(-3.7,1.5,4.6)
+> y<-c(1.5,1.5,4.6)
+> ansari.exact(y,x,alt="two.sided")
+
+	Ansari-Bradley test
+
+data:  y and x
+AB = 7.5, p-value = 0.7
+alternative hypothesis: true ratio of scales is not equal to 1
+
+> ansari.test(y,x,alt="two.sided")
+
+	Ansari-Bradley test
+
+data:  y and x
+AB = 7.5, p-value = 0.3476
+alternative hypothesis: true ratio of scales is not equal to 1
+
+Warning message:
+In ansari.test.default(y, x, alt = "two.sided") 

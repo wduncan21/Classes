@@ -1,0 +1,280 @@
+Mplus VERSION 7
+MUTHEN & MUTHEN
+05/05/2014   2:29 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: Homework 2 Lu Wang;
+  DATA:
+      FILE IS "B:\dropbox\class\hw2dat.txt";
+      TYPE IS CORR;
+      NOBS IS 300;
+  VARIABLE: NAMES ARE ACH MOT COG SES ANX;
+  ANALYSIS: TYPE IS general;
+           ESTIMATOR IS ml;
+  MODEL:
+     ACH ON COG SES ANX;
+     MOT ON COG SES ANX;
+  OUTPUT:
+     stand res;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Homework 2 Lu Wang;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         300
+
+Number of dependent variables                                    2
+Number of independent variables                                  3
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   ACH         MOT
+
+Observed independent variables
+   COG         SES         ANX
+
+
+Estimator                                                       ML
+Information matrix                                        EXPECTED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+
+Input data file(s)
+  B:\dropbox\class\hw2dat.txt
+
+Input data format  FREE
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        9
+
+Loglikelihood
+
+          H0 Value                        -422.460
+          H1 Value                        -422.460
+
+Information Criteria
+
+          Akaike (AIC)                     862.920
+          Bayesian (BIC)                   896.254
+          Sample-Size Adjusted BIC         867.711
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                              0.000
+          Degrees of Freedom                     0
+          P-Value                           0.0000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.000
+          90 Percent C.I.                    0.000  0.000
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                1.000
+          TLI                                1.000
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            855.803
+          Degrees of Freedom                     7
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.000
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ ACH      ON
+    COG                0.664      0.025     26.733      0.000
+    SES                0.392      0.025     15.501      0.000
+    ANX               -0.736      0.024    -30.302      0.000
+
+ MOT      ON
+    COG                0.200      0.056      3.573      0.000
+    SES                0.366      0.057      6.413      0.000
+    ANX                0.012      0.055      0.218      0.827
+
+ MOT      WITH
+    ACH                0.238      0.024      9.975      0.000
+
+ Residual Variances
+    ACH                0.150      0.012     12.247      0.000
+    MOT                0.760      0.062     12.247      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ ACH      ON
+    COG                0.664      0.033     19.874      0.000
+    SES                0.392      0.030     12.952      0.000
+    ANX               -0.736      0.040    -18.607      0.000
+
+ MOT      ON
+    COG                0.200      0.055      3.623      0.000
+    SES                0.366      0.054      6.760      0.000
+    ANX                0.012      0.055      0.218      0.827
+
+ MOT      WITH
+    ACH                0.704      0.029     24.223      0.000
+
+ Residual Variances
+    ACH                0.150      0.016      9.394      0.000
+    MOT                0.763      0.043     17.788      0.000
+
+
+STDY Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ ACH      ON
+    COG                0.665      0.030     22.005      0.000
+    SES                0.393      0.027     14.392      0.000
+    ANX               -0.738      0.031    -23.870      0.000
+
+ MOT      ON
+    COG                0.200      0.055      3.654      0.000
+    SES                0.366      0.053      6.918      0.000
+    ANX                0.012      0.055      0.218      0.827
+
+ MOT      WITH
+    ACH                0.704      0.029     24.223      0.000
+
+ Residual Variances
+    ACH                0.150      0.016      9.394      0.000
+    MOT                0.763      0.043     17.788      0.000
+
+
+STD Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ ACH      ON
+    COG                0.664      0.025     26.733      0.000
+    SES                0.392      0.025     15.501      0.000
+    ANX               -0.736      0.024    -30.302      0.000
+
+ MOT      ON
+    COG                0.200      0.056      3.573      0.000
+    SES                0.366      0.057      6.413      0.000
+    ANX                0.012      0.055      0.218      0.827
+
+ MOT      WITH
+    ACH                0.238      0.024      9.975      0.000
+
+ Residual Variances
+    ACH                0.150      0.012     12.247      0.000
+    MOT                0.760      0.062     12.247      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    ACH                0.850      0.016     53.188      0.000
+    MOT                0.237      0.043      5.526      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.542E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+RESIDUAL OUTPUT
+
+
+     ESTIMATED MODEL AND RESIDUALS (OBSERVED - ESTIMATED)
+
+
+           Model Estimated Covariances/Correlations/Residual Correlations
+              ACH           MOT           COG           SES           ANX
+              ________      ________      ________      ________      ________
+ ACH            0.997
+ MOT            0.498         0.997
+ COG            0.598         0.349         0.997
+ SES            0.399         0.448         0.399         0.997
+ ANX           -0.399         0.199         0.299         0.349         0.997
+
+
+           Residuals for Covariances/Correlations/Residual Correlations
+              ACH           MOT           COG           SES           ANX
+              ________      ________      ________      ________      ________
+ ACH            0.000
+ MOT            0.000         0.000
+ COG            0.000         0.000         0.000
+ SES            0.000         0.000         0.000         0.000
+ ANX            0.000         0.000         0.000         0.000         0.000
+
+
+           Standardized Residuals (z-scores) for Covariances/Correlations/Residual Corr
+              ACH           MOT           COG           SES           ANX
+              ________      ________      ________      ________      ________
+ ACH            0.000
+ MOT            0.000         0.000
+ COG            0.000         0.000         0.000
+ SES            0.000         0.000         0.000         0.000
+ ANX            0.000         0.000         0.000         0.000         0.000
+
+
+           Normalized Residuals for Covariances/Correlations/Residual Correlations
+              ACH           MOT           COG           SES           ANX
+              ________      ________      ________      ________      ________
+ ACH            0.000
+ MOT            0.000         0.000
+ COG            0.000         0.000         0.000
+ SES            0.000         0.000         0.000         0.000
+ ANX            0.000         0.000         0.000         0.000         0.000
+
+
+     Beginning Time:  14:29:45
+        Ending Time:  14:29:45
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2012 Muthen & Muthen

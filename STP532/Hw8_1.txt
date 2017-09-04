@@ -1,0 +1,29 @@
+> a<-c(2, 4)
+> b<-c(8, 3)
+> c<-c(11, 5)
+> pooled<-c(a,b,c)
+> total<-factorial(6)/(factorial(2)*factorial(2)*factorial(2))
+> perm1<-choose(6,2)
+> perm2<-choose(4,2)
+> combo1<-combn(6,2)
+> combo2<-combn(4,2)
+> dist<-rep(NA,total)
+> ts<-2*(mean(a)^2+mean(b)^2+mean(c)^2)
+> m=1
+> for (i in 1:perm1)
++ {
++     d1<-combo1[,i]
++     group1<-pooled[d1]
++     group23<-pooled[-d1]
++     for(j in 1:perm2)
++     {
++         d2 <- combo2[,j]
++         group2<-group23[d2]
++         group3<-group23[-d2]
++         dist[m]<- 2*( mean(group1)^2+mean(group2)^2+mean(group3)^2)
++         m=m+1
++     }
++ }
+> pvalue<-mean(dist>=ts)
+> pvalue 
+[1] 0.4

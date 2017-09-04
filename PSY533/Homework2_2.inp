@@ -1,0 +1,13 @@
+TITLE: Homework 2 Lu Wang;
+DATA: 
+    FILE IS "B:\dropbox\class\hw2dat.txt";
+    TYPE IS CORR;
+    NOBS IS 300;
+VARIABLE: NAMES ARE ACH MOT COG SES ANX;
+ANALYSIS: TYPE IS general;
+         ESTIMATOR IS ml;
+MODEL: 
+   MOT ON COG SES ANX;
+   ACH ON MOT;
+OUTPUT: 
+   stand res;

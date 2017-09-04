@@ -1,0 +1,12 @@
+> y=c(16.2,17.4,8.5,15.6,5.4,9.8,14.9,16.6,15.9,5.3,10.5)
+> x=c(3.6,2.6,4.7,8.0,3.1,8.8,4.6,5.8,4.0,4.6)
+> ks.test(x,y) 
+
+	Two-sample Kolmogorov-Smirnov test
+
+data:  x and y
+D = 0.7273, p-value = 0.007844
+alternative hypothesis: two-sided
+
+Warning message:
+In ks.test(x, y) : 无法精確計算带连结的p值

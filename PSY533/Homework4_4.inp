@@ -1,0 +1,25 @@
+TITLE: CESD data from Gregorich(2006)  Strict 
+DATA: FILE = "B:\dropbox\class\CESD_WBdata.dat";
+      TYPE IS means cova;
+      NGROUPS = 2;
+      NOBSERVATIONS = 2004 248;
+VARIABLE: NAMES ARE CESD1 CESD2 CESD7 CESD11 CESD20;
+ANALYSIS: TYPE = MGROUP;
+          ITERATIONS=3000;
+          ESTIMATOR=ML;
+MODEL:    F1 BY CESD1@1 CESD2 CESD7 CESD11 CESD20;
+          [CESD1 CESD2@0 CESD7 CESD11 CESD20];
+		  CESD1 (1);
+          CESD2 (2);
+          CESD7 (3);
+          CESD11 (4);
+          CESD20 (5);
+
+MODEL G1: [F1];
+MODEL G2: [F1];
+		  CESD1 (1);
+          CESD2 (2);
+          CESD7 (3);
+          CESD11 (4);
+          CESD20 (5);
+OUTPUT: sampstat residual;

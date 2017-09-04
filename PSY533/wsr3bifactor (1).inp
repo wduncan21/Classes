@@ -1,0 +1,22 @@
+TITLE: WAISR Standardization data males bifactor model
+DATA: FILE = jwaisrm.dat;
+VARIABLE: NAMES ARE sex, info digs voca arit comp simi
+            picc pica blkd obja digy;
+	    USEVARIABLES ARE info-digy;
+ANALYSIS: TYPE = GENERAL;
+          ITERATIONS=5000;
+          ESTIMATOR=ML;
+MODEL: f1 BY voca*.5 info*.5, comp*.5 simi*.5;
+       f2 BY blkd*.5 picc*.5, pica*.5, obja*.5;
+       f3 BY arit*.2 digs*.2 digy*.2;
+       f4 BY info*.5 digs*.5 voca*.5 arit*.5 comp*.5 simi*.5
+             picc*.5 pica*.5 blkd*.5 obja*.5 digy*.5;
+       f1@1 f2@1 f3@1 f4@1;
+       f4 with f1@0;
+       f4 with f2@0;
+       f4 with f3@0;
+OUTPUT:  SAMPSTAT;
+         MODINDICES;
+         STAND;
+	   RES;
+	   TECH1;

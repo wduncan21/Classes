@@ -1,0 +1,25 @@
+TITLE: midterm 1.2 Background  model;
+DATA:
+file = "B:\dropbox\class\Spring 2014\PSY533\midterm.dat";
+type = stdeviations correlation;
+nobservations = 3094;
+
+VARIABLE:
+names are parinc hsrank acadab degasp select occpr income;
+USEVARIABLES ARE parinc hsrank acadab degasp select occpr income;
+
+ANALYSIS: TYPE = GENERAL;
+          ITERATIONS=3000;
+          ESTIMATOR=ML;
+MODEL:    degasp ON  parinc hsrank acadab;
+          select ON parinc hsrank acadab degasp;
+          occpr ON parinc hsrank acadab degasp ;
+          income ON parinc hsrank acadab degasp ;
+		  parinc hsrank acadab with parinc hsrank acadab;
+		  degasp with select@0 occpr@0 income@0;
+		  select with occpr@0 income@0;
+		  occpr with income@0;
+OUTPUT: sampstat standardized residual mod;
+
+
+

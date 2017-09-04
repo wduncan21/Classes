@@ -1,0 +1,48 @@
+> ##ks.test
+> input<-beak$y
+> n<-length(input)
+> muhat<-mean(input)
+> sdhat<-sd(input)
+> D<-ks.test(input,"pnorm",muhat,sdhat)$statistic
+Warning message:
+In ks.test(input, "pnorm", muhat, sdhat) :
+  Kolmogorov - Smirnov检验里不应该有连结
+> D
+        D 
+0.1081911 
+> R<-4999
+> Dvec<-double(R)
+> for(i in 1:R){
++     rndmsamp<-rnorm(n,muhat,sdhat)
++     Dvec[i]<-ks.test(rndmsamp,"pnorm",muhat,sdhat)$statistic
++ }
+> pval<-(sum(Dvec>D))/R
+> pval
+[1] 0.9091818
+> 
+> ##lilitest
+> library("nortest", lib.loc="C:/Users/Mr.Wang/Documents/R/win-library/3.0")
+> lillie.test(input)
+
+	Lilliefors (Kolmogorov-Smirnov) normality test
+
+data:  input
+D = 0.1082, p-value = 0.633
+
+##transform Y
+
+> z<-(input-muhat)/sdhat
+> u<-pnorm(z)
+> D<-ks.test(u,"punif",min=0,max=1)$statistic
+Warning message:
+In ks.test(u, "punif", min = 0, max = 1) :
+  Kolmogorov - Smirnov检验里不应该有连结
+> D
+        D 
+0.1081911 
+> for(i in 1:R){
++     rndmsamp<-runif(n,0,1)
++     Dvec[i]<-ks.test(rndmsamp,"punif",0,1)$statistic}
+> pval<-(sum(Dvec>D))/R
+> pval
+[1] 0.8979796

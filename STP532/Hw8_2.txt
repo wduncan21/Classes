@@ -1,0 +1,62 @@
+
+> kidney<-read.table("B:\\dropbox\\class\\Spring 2014\\STP532\\kidney.txt")
+> attach(kidney)
+> y=V1
+> x1=V2
+> x2=V3
+> x3=V4
+> mlrfit<-lm(y~x1+x2+x3)
+> confint(mlrfit)
+                  2.5 %     97.5 %
+(Intercept)  89.8316641 150.262902
+x1          -51.3925186 -28.486135
+x2           -1.0259506  -0.447584
+x3            0.4248746   1.127963
+
+> betastar <- matrix(NA,1000,4)
+> for(i in 1:1000)
++ {
++     datastar<-kidney[sample(33,33,replace=T),]
++     newframe<-as.data.frame(datastar)
++     newresult<-lm(y~x1+x2+x3,data=newframe)
++     betastar[i,1]<-newresult$coef[1]
++     betastar[i,2]<-newresult$coef[2]
++     betastar[i,3]<-newresult$coef[3]
++     betastar[i,4]<-newresult$coef[4]
++ }
+> quantile(betastar[,2],c(0.025,0.975))
+     2.5%     97.5% 
+-52.78318 -31.48130 
+> quantile(betastar[,3],c(0.025,0.975))
+      2.5%      97.5% 
+-1.0443495 -0.4177037 
+> quantile(betastar[,4],c(0.025,0.975))
+     2.5%     97.5% 
+0.4789888 1.1322673 
+
+> X<-model.matrix(y~x1+x2+x3,data=kidney)
+> betahat <- summary(mlrfit)$coefficients
+> fitted = X%*%betahat
+> e<-resid(mlrfit)
+> 
+> 
+> for(i in 1:1000) 
++ {
++     eij=sample(e,replace=T)
++     ystar=fitted + eij
++     bootstrapsample <- data.frame(ystar,x1,x2,x3)
++     newresult <- lm(ystar~x1 + x2 +x3,data=bootstrapsample)
++     betastar[i,1] <-newresult$coef[1]
++     betastar[i,2] <-newresult$coef[2]
++     betastar[i,3] <-newresult$coef[3]
++     betastar[i,4] <-newresult$coef[4]
++ }
+> quantile(betastar[,2],c(0.025,0.975))
+     2.5%     97.5% 
+-49.94287 -29.61612 
+> quantile(betastar[,3],c(0.025,0.975))
+      2.5%      97.5% 
+-0.9816672 -0.4743413 
+> quantile(betastar[,4],c(0.025,0.975))
+    2.5%    97.5% 
+0.442353 1.083072 

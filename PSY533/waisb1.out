@@ -1,0 +1,1215 @@
+Mplus VERSION 6.12
+MUTHEN & MUTHEN
+04/19/2014   5:39 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: WAISR Standardization data males vs females
+  DATA: FILE (males) = "B:\dropbox\class\jwaisrm.dat";
+        FILE (females) = "B:\dropbox\class\jwaisrf.dat";
+  VARIABLE: NAMES ARE sex, info digs voca arit comp simi
+              picc pica blkd obja digy;
+              USEVARIABLES ARE info voca comp simi picc pica blkd;
+  ANALYSIS: TYPE = MGROUP MEANSTRUCTURE;
+            ITERATIONS=3000;
+            ESTIMATOR=ML;
+  MODEL:    F1 BY info*.5 voca@1 comp*.5 simi*.5 picc*0 pica*0;
+            F2 by info*0 comp*0 simi*0 picc*.5 pica*.5 blkd@1;
+            [info voca@0 comp simi picc pica blkd@0];
+            F1*9 F2*9;
+  MODEL males: [F1 F2];
+  MODEL females: F1 BY info*.5 voca@1 comp*.5 simi*.5 picc*0 pica*0;
+            F2 by info*0 comp*0 simi*0 picc*.5 pica*.5 blkd@1;
+            [info voca@0 comp simi picc pica blkd@0];
+            [F1 F2];
+  OUTPUT: sampstat standardized residual tech1;
+
+
+
+
+
+*** WARNING in ANALYSIS command
+  Starting with Version 5, TYPE=MEANSTRUCTURE is the default for all
+  analyses.  To remove means from the model, use
+  MODEL=NOMEANSTRUCTURE in the ANALYSIS command.
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+WAISR Standardization data males vs females
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 2
+Number of observations
+   Group MALES                                                 940
+   Group FEMALES                                               940
+
+Number of dependent variables                                    7
+Number of independent variables                                  0
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Continuous
+   INFO        VOCA        COMP        SIMI        PICC        PICA
+   BLKD
+
+Continuous latent variables
+   F1          F2
+
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  3000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+
+Input data file(s)
+  B:\dropbox\class\jwaisrm.dat
+  B:\dropbox\class\jwaisrf.dat
+
+Input data format  FREE
+
+
+SAMPLE STATISTICS
+
+
+     SAMPLE STATISTICS FOR MALES
+
+
+           Means
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+      1         9.822         9.412         9.606         9.007         9.151
+
+
+           Means
+              PICA          BLKD
+              ________      ________
+      1         8.967         9.159
+
+
+           Covariances
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+ INFO           9.627
+ VOCA           7.795         9.342
+ COMP           6.431         6.980         9.564
+ SIMI           6.360         6.687         6.272        10.358
+ PICC           4.384         4.478         4.144         5.483         8.977
+ PICA           4.378         4.295         4.094         5.228         5.408
+ BLKD           4.320         4.300         3.946         5.519         5.464
+
+
+           Covariances
+              PICA          BLKD
+              ________      ________
+ PICA           9.600
+ BLKD           5.529         9.567
+
+
+           Correlations
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+ INFO           1.000
+ VOCA           0.822         1.000
+ COMP           0.670         0.738         1.000
+ SIMI           0.637         0.680         0.630         1.000
+ PICC           0.472         0.489         0.447         0.569         1.000
+ PICA           0.455         0.454         0.427         0.524         0.583
+ BLKD           0.450         0.455         0.413         0.554         0.590
+
+
+           Correlations
+              PICA          BLKD
+              ________      ________
+ PICA           1.000
+ BLKD           0.577         1.000
+
+
+     SAMPLE STATISTICS FOR FEMALES
+
+
+           Means
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+      1         8.978         9.252         9.329         8.973         8.659
+
+
+           Means
+              PICA          BLKD
+              ________      ________
+      1         8.537         8.421
+
+
+           Covariances
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+ INFO           7.850
+ VOCA           6.834         8.797
+ COMP           6.125         6.952         9.325
+ SIMI           6.192         6.809         6.879        10.109
+ PICC           4.729         5.148         5.426         5.946        10.489
+ PICA           4.160         4.516         4.761         5.293         5.911
+ BLKD           3.713         4.067         4.166         4.839         5.677
+
+
+           Covariances
+              PICA          BLKD
+              ________      ________
+ PICA           9.551
+ BLKD           4.582         8.193
+
+
+           Correlations
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+ INFO           1.000
+ VOCA           0.822         1.000
+ COMP           0.716         0.768         1.000
+ SIMI           0.695         0.722         0.709         1.000
+ PICC           0.521         0.536         0.549         0.577         1.000
+ PICA           0.480         0.493         0.504         0.539         0.591
+ BLKD           0.463         0.479         0.477         0.532         0.612
+
+
+           Correlations
+              PICA          BLKD
+              ________      ________
+ PICA           1.000
+ BLKD           0.518         1.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       54
+
+Loglikelihood
+
+          H0 Value                      -29254.943
+          H1 Value                      -29238.516
+
+Information Criteria
+
+          Akaike (AIC)                   58617.886
+          Bayesian (BIC)                 58916.994
+          Sample-Size Adjusted BIC       58745.436
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                             32.853
+          Degrees of Freedom                    16
+          P-Value                           0.0077
+
+Chi-Square Contributions From Each Group
+
+          MALES                             15.621
+          FEMALES                           17.232
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.033
+          90 Percent C.I.                    0.017  0.050
+          Probability RMSEA <= .05           0.952
+
+CFI/TLI
+
+          CFI                                0.998
+          TLI                                0.995
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           8292.265
+          Degrees of Freedom                    42
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.007
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group MALES
+
+ F1       BY
+    INFO               0.876      0.038     23.331      0.000
+    VOCA               1.000      0.000    999.000    999.000
+    COMP               0.755      0.039     19.134      0.000
+    SIMI               0.504      0.041     12.191      0.000
+    PICC               0.055      0.048      1.137      0.256
+    PICA               0.027      0.050      0.537      0.591
+
+ F2       BY
+    INFO               0.095      0.043      2.223      0.026
+    COMP               0.152      0.048      3.203      0.001
+    SIMI               0.584      0.053     10.934      0.000
+    PICC               0.932      0.068     13.715      0.000
+    PICA               0.952      0.069     13.744      0.000
+    BLKD               1.000      0.000    999.000    999.000
+
+ F2       WITH
+    F1                 4.286      0.337     12.704      0.000
+
+ Means
+    F1                 9.412      0.100     94.408      0.000
+    F2                 9.159      0.101     90.780      0.000
+
+ Intercepts
+    INFO               0.703      0.255      2.758      0.006
+    VOCA               0.000      0.000    999.000    999.000
+    COMP               1.108      0.297      3.732      0.000
+    SIMI              -1.080      0.339     -3.186      0.001
+    PICC               0.100      0.407      0.245      0.806
+    PICA              -0.005      0.423     -0.012      0.990
+    BLKD               0.000      0.000    999.000    999.000
+
+ Variances
+    F1                 8.403      0.454     18.508      0.000
+    F2                 5.655      0.454     12.464      0.000
+
+ Residual Variances
+    INFO               2.409      0.156     15.443      0.000
+    VOCA               0.939      0.156      6.037      0.000
+    COMP               3.662      0.193     18.967      0.000
+    SIMI               3.778      0.203     18.587      0.000
+    PICC               3.603      0.245     14.681      0.000
+    PICA               4.249      0.273     15.548      0.000
+    BLKD               3.912      0.276     14.172      0.000
+
+Group FEMALES
+
+ F1       BY
+    INFO               0.867      0.039     22.100      0.000
+    VOCA               1.000      0.000    999.000    999.000
+    COMP               0.772      0.043     18.122      0.000
+    SIMI               0.641      0.047     13.766      0.000
+    PICC               0.007      0.071      0.100      0.920
+    PICA               0.078      0.061      1.285      0.199
+
+ F2       BY
+    INFO               0.046      0.050      0.934      0.350
+    COMP               0.266      0.057      4.708      0.000
+    SIMI               0.498      0.063      7.881      0.000
+    PICC               1.256      0.107     11.764      0.000
+    PICA               0.977      0.088     11.124      0.000
+    BLKD               1.000      0.000    999.000    999.000
+
+ F2       WITH
+    F1                 4.035      0.304     13.269      0.000
+
+ Means
+    F1                 9.252      0.097     95.639      0.000
+    F2                 8.421      0.093     90.204      0.000
+
+ Intercepts
+    INFO               0.562      0.238      2.366      0.018
+    VOCA               0.000      0.000    999.000    999.000
+    COMP              -0.052      0.286     -0.182      0.856
+    SIMI              -1.150      0.322     -3.570      0.000
+    PICC              -1.987      0.494     -4.018      0.000
+    PICA              -0.413      0.438     -0.944      0.345
+    BLKD               0.000      0.000    999.000    999.000
+
+ Variances
+    F1                 7.621      0.419     18.188      0.000
+    F2                 4.447      0.378     11.775      0.000
+
+ Residual Variances
+    INFO               1.782      0.120     14.878      0.000
+    VOCA               1.176      0.130      9.067      0.000
+    COMP               2.814      0.153     18.347      0.000
+    SIMI               3.299      0.176     18.696      0.000
+    PICC               3.398      0.307     11.068      0.000
+    PICA               4.644      0.274     16.960      0.000
+    BLKD               3.746      0.244     15.356      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group MALES
+
+ F1       BY
+    INFO               0.818      0.027     30.862      0.000
+    VOCA               0.948      0.009    104.847      0.000
+    COMP               0.707      0.030     23.429      0.000
+    SIMI               0.454      0.035     12.999      0.000
+    PICC               0.053      0.047      1.137      0.256
+    PICA               0.025      0.047      0.537      0.591
+
+ F2       BY
+    INFO               0.073      0.033      2.232      0.026
+    COMP               0.117      0.036      3.244      0.001
+    SIMI               0.431      0.035     12.501      0.000
+    PICC               0.740      0.040     18.580      0.000
+    PICA               0.731      0.040     18.390      0.000
+    BLKD               0.769      0.019     39.458      0.000
+
+ F2       WITH
+    F1                 0.622      0.034     18.075      0.000
+
+ Means
+    F1                 3.247      0.094     34.462      0.000
+    F2                 3.851      0.160     24.038      0.000
+
+ Intercepts
+    INFO               0.227      0.084      2.683      0.007
+    VOCA               0.000      0.000    999.000    999.000
+    COMP               0.358      0.100      3.567      0.000
+    SIMI              -0.336      0.102     -3.301      0.001
+    PICC               0.033      0.136      0.245      0.807
+    PICA              -0.002      0.136     -0.012      0.990
+    BLKD               0.000      0.000    999.000    999.000
+
+ Variances
+    F1                 1.000      0.000    999.000    999.000
+    F2                 1.000      0.000    999.000    999.000
+
+ Residual Variances
+    INFO               0.250      0.018     13.794      0.000
+    VOCA               0.101      0.017      5.858      0.000
+    COMP               0.383      0.022     17.466      0.000
+    SIMI               0.365      0.021     16.976      0.000
+    PICC               0.401      0.029     14.059      0.000
+    PICA               0.443      0.029     15.108      0.000
+    BLKD               0.409      0.030     13.650      0.000
+
+Group FEMALES
+
+ F1       BY
+    INFO               0.855      0.031     27.810      0.000
+    VOCA               0.931      0.008    110.680      0.000
+    COMP               0.698      0.033     21.029      0.000
+    SIMI               0.556      0.037     14.989      0.000
+    PICC               0.006      0.061      0.100      0.920
+    PICA               0.070      0.054      1.287      0.198
+
+ F2       BY
+    INFO               0.035      0.037      0.935      0.350
+    COMP               0.184      0.038      4.850      0.000
+    SIMI               0.330      0.039      8.495      0.000
+    PICC               0.818      0.053     15.397      0.000
+    PICA               0.666      0.048     13.780      0.000
+    BLKD               0.737      0.021     35.698      0.000
+
+ F2       WITH
+    F1                 0.693      0.035     20.090      0.000
+
+ Means
+    F1                 3.351      0.099     34.000      0.000
+    F2                 3.994      0.175     22.787      0.000
+
+ Intercepts
+    INFO               0.201      0.087      2.316      0.021
+    VOCA               0.000      0.000    999.000    999.000
+    COMP              -0.017      0.093     -0.182      0.855
+    SIMI              -0.362      0.098     -3.704      0.000
+    PICC              -0.614      0.149     -4.125      0.000
+    PICA              -0.134      0.140     -0.953      0.340
+    BLKD               0.000      0.000    999.000    999.000
+
+ Variances
+    F1                 1.000      0.000    999.000    999.000
+    F2                 1.000      0.000    999.000    999.000
+
+ Residual Variances
+    INFO               0.227      0.017     13.269      0.000
+    VOCA               0.134      0.016      8.536      0.000
+    COMP               0.302      0.019     16.191      0.000
+    SIMI               0.326      0.020     16.667      0.000
+    PICC               0.324      0.031     10.593      0.000
+    PICA               0.486      0.029     16.819      0.000
+    BLKD               0.457      0.030     15.037      0.000
+
+
+STDY Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group MALES
+
+ F1       BY
+    INFO               0.818      0.027     30.862      0.000
+    VOCA               0.948      0.009    104.847      0.000
+    COMP               0.707      0.030     23.429      0.000
+    SIMI               0.454      0.035     12.999      0.000
+    PICC               0.053      0.047      1.137      0.256
+    PICA               0.025      0.047      0.537      0.591
+
+ F2       BY
+    INFO               0.073      0.033      2.232      0.026
+    COMP               0.117      0.036      3.244      0.001
+    SIMI               0.431      0.035     12.501      0.000
+    PICC               0.740      0.040     18.580      0.000
+    PICA               0.731      0.040     18.390      0.000
+    BLKD               0.769      0.019     39.458      0.000
+
+ F2       WITH
+    F1                 0.622      0.034     18.075      0.000
+
+ Means
+    F1                 3.247      0.094     34.462      0.000
+    F2                 3.851      0.160     24.038      0.000
+
+ Intercepts
+    INFO               0.227      0.084      2.683      0.007
+    VOCA               0.000      0.000    999.000    999.000
+    COMP               0.358      0.100      3.567      0.000
+    SIMI              -0.336      0.102     -3.301      0.001
+    PICC               0.033      0.136      0.245      0.807
+    PICA              -0.002      0.136     -0.012      0.990
+    BLKD               0.000      0.000    999.000    999.000
+
+ Variances
+    F1                 1.000      0.000    999.000    999.000
+    F2                 1.000      0.000    999.000    999.000
+
+ Residual Variances
+    INFO               0.250      0.018     13.794      0.000
+    VOCA               0.101      0.017      5.858      0.000
+    COMP               0.383      0.022     17.466      0.000
+    SIMI               0.365      0.021     16.976      0.000
+    PICC               0.401      0.029     14.059      0.000
+    PICA               0.443      0.029     15.108      0.000
+    BLKD               0.409      0.030     13.650      0.000
+
+Group FEMALES
+
+ F1       BY
+    INFO               0.855      0.031     27.810      0.000
+    VOCA               0.931      0.008    110.680      0.000
+    COMP               0.698      0.033     21.029      0.000
+    SIMI               0.556      0.037     14.989      0.000
+    PICC               0.006      0.061      0.100      0.920
+    PICA               0.070      0.054      1.287      0.198
+
+ F2       BY
+    INFO               0.035      0.037      0.935      0.350
+    COMP               0.184      0.038      4.850      0.000
+    SIMI               0.330      0.039      8.495      0.000
+    PICC               0.818      0.053     15.397      0.000
+    PICA               0.666      0.048     13.780      0.000
+    BLKD               0.737      0.021     35.698      0.000
+
+ F2       WITH
+    F1                 0.693      0.035     20.090      0.000
+
+ Means
+    F1                 3.351      0.099     34.000      0.000
+    F2                 3.994      0.175     22.787      0.000
+
+ Intercepts
+    INFO               0.201      0.087      2.316      0.021
+    VOCA               0.000      0.000    999.000    999.000
+    COMP              -0.017      0.093     -0.182      0.855
+    SIMI              -0.362      0.098     -3.704      0.000
+    PICC              -0.614      0.149     -4.125      0.000
+    PICA              -0.134      0.140     -0.953      0.340
+    BLKD               0.000      0.000    999.000    999.000
+
+ Variances
+    F1                 1.000      0.000    999.000    999.000
+    F2                 1.000      0.000    999.000    999.000
+
+ Residual Variances
+    INFO               0.227      0.017     13.269      0.000
+    VOCA               0.134      0.016      8.536      0.000
+    COMP               0.302      0.019     16.191      0.000
+    SIMI               0.326      0.020     16.667      0.000
+    PICC               0.324      0.031     10.593      0.000
+    PICA               0.486      0.029     16.819      0.000
+    BLKD               0.457      0.030     15.037      0.000
+
+
+STD Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group MALES
+
+ F1       BY
+    INFO               2.540      0.109     23.284      0.000
+    VOCA               2.899      0.078     37.017      0.000
+    COMP               2.187      0.115     19.062      0.000
+    SIMI               1.460      0.120     12.202      0.000
+    PICC               0.159      0.140      1.137      0.256
+    PICA               0.078      0.145      0.537      0.591
+
+ F2       BY
+    INFO               0.227      0.102      2.230      0.026
+    COMP               0.363      0.112      3.234      0.001
+    SIMI               1.388      0.118     11.797      0.000
+    PICC               2.216      0.138     16.109      0.000
+    PICA               2.264      0.142     15.893      0.000
+    BLKD               2.378      0.095     24.928      0.000
+
+ F2       WITH
+    F1                 0.622      0.034     18.075      0.000
+
+ Means
+    F1                 3.247      0.094     34.462      0.000
+    F2                 3.851      0.160     24.038      0.000
+
+ Intercepts
+    INFO               0.703      0.255      2.758      0.006
+    VOCA               0.000      0.000    999.000    999.000
+    COMP               1.108      0.297      3.732      0.000
+    SIMI              -1.080      0.339     -3.186      0.001
+    PICC               0.100      0.407      0.245      0.806
+    PICA              -0.005      0.423     -0.012      0.990
+    BLKD               0.000      0.000    999.000    999.000
+
+ Variances
+    F1                 1.000      0.000    999.000    999.000
+    F2                 1.000      0.000    999.000    999.000
+
+ Residual Variances
+    INFO               2.409      0.156     15.443      0.000
+    VOCA               0.939      0.156      6.037      0.000
+    COMP               3.662      0.193     18.967      0.000
+    SIMI               3.778      0.203     18.587      0.000
+    PICC               3.603      0.245     14.681      0.000
+    PICA               4.249      0.273     15.548      0.000
+    BLKD               3.912      0.276     14.172      0.000
+
+Group FEMALES
+
+ F1       BY
+    INFO               2.394      0.109     22.002      0.000
+    VOCA               2.761      0.076     36.377      0.000
+    COMP               2.131      0.119     17.973      0.000
+    SIMI               1.769      0.128     13.776      0.000
+    PICC               0.020      0.196      0.100      0.920
+    PICA               0.217      0.169      1.286      0.199
+
+ F2       BY
+    INFO               0.098      0.105      0.935      0.350
+    COMP               0.561      0.116      4.817      0.000
+    SIMI               1.050      0.127      8.286      0.000
+    PICC               2.649      0.189     14.010      0.000
+    PICA               2.059      0.164     12.586      0.000
+    BLKD               2.109      0.090     23.551      0.000
+
+ F2       WITH
+    F1                 0.693      0.035     20.090      0.000
+
+ Means
+    F1                 3.351      0.099     34.000      0.000
+    F2                 3.994      0.175     22.787      0.000
+
+ Intercepts
+    INFO               0.562      0.238      2.366      0.018
+    VOCA               0.000      0.000    999.000    999.000
+    COMP              -0.052      0.286     -0.182      0.856
+    SIMI              -1.150      0.322     -3.570      0.000
+    PICC              -1.987      0.494     -4.018      0.000
+    PICA              -0.413      0.438     -0.944      0.345
+    BLKD               0.000      0.000    999.000    999.000
+
+ Variances
+    F1                 1.000      0.000    999.000    999.000
+    F2                 1.000      0.000    999.000    999.000
+
+ Residual Variances
+    INFO               1.782      0.120     14.878      0.000
+    VOCA               1.176      0.130      9.067      0.000
+    COMP               2.814      0.153     18.347      0.000
+    SIMI               3.299      0.176     18.696      0.000
+    PICC               3.398      0.307     11.068      0.000
+    PICA               4.644      0.274     16.960      0.000
+    BLKD               3.746      0.244     15.356      0.000
+
+
+R-SQUARE
+
+Group MALES
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    INFO               0.750      0.018     41.318      0.000
+    VOCA               0.899      0.017     52.423      0.000
+    COMP               0.617      0.022     28.151      0.000
+    SIMI               0.635      0.021     29.565      0.000
+    PICC               0.599      0.029     20.972      0.000
+    PICA               0.557      0.029     19.026      0.000
+    BLKD               0.591      0.030     19.729      0.000
+
+Group FEMALES
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    INFO               0.773      0.017     45.193      0.000
+    VOCA               0.866      0.016     55.340      0.000
+    COMP               0.698      0.019     37.469      0.000
+    SIMI               0.674      0.020     34.400      0.000
+    PICC               0.676      0.031     22.103      0.000
+    PICA               0.514      0.029     17.771      0.000
+    BLKD               0.543      0.030     17.849      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.345E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+RESIDUAL OUTPUT
+
+
+     ESTIMATED MODEL AND RESIDUALS (OBSERVED - ESTIMATED) FOR MALES
+
+
+           Model Estimated Means/Intercepts/Thresholds
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+      1         9.822         9.412         9.606         9.007         9.151
+
+
+           Model Estimated Means/Intercepts/Thresholds
+              PICA          BLKD
+              ________      ________
+      1         8.967         9.159
+
+
+           Residuals for Means/Intercepts/Thresholds
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+      1         0.000         0.000         0.000         0.000         0.000
+
+
+           Residuals for Means/Intercepts/Thresholds
+              PICA          BLKD
+              ________      ________
+      1         0.000         0.000
+
+
+           Standardized Residuals (z-scores) for Means/Intercepts/Thresholds
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+      1         0.000         0.000         0.000         0.000         0.000
+
+
+           Standardized Residuals (z-scores) for Means/Intercepts/Thresholds
+              PICA          BLKD
+              ________      ________
+      1         0.000         0.000
+
+
+           Normalized Residuals for Means/Intercepts/Thresholds
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+      1         0.000         0.000         0.000         0.000         0.000
+
+
+           Normalized Residuals for Means/Intercepts/Thresholds
+              PICA          BLKD
+              ________      ________
+      1         0.000         0.000
+
+
+           Model Estimated Covariances/Correlations/Residual Correlations
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+ INFO           9.627
+ VOCA           7.771         9.342
+ COMP           6.518         6.994         9.564
+ SIMI           6.421         6.735         5.915        10.358
+ PICC           4.428         4.455         4.201         5.458         8.977
+ PICA           4.297         4.306         4.088         5.379         5.361
+ BLKD           4.295         4.286         4.096         5.460         5.505
+
+
+           Model Estimated Covariances/Correlations/Residual Correlations
+              PICA          BLKD
+              ________      ________
+ PICA           9.600
+ BLKD           5.499         9.567
+
+
+           Residuals for Covariances/Correlations/Residual Correlations
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+ INFO           0.000
+ VOCA           0.025         0.000
+ COMP          -0.087        -0.014         0.000
+ SIMI          -0.061        -0.048         0.357         0.000
+ PICC          -0.044         0.023        -0.058         0.025         0.000
+ PICA           0.081        -0.011         0.007        -0.151         0.048
+ BLKD           0.025         0.014        -0.150         0.059        -0.041
+
+
+           Residuals for Covariances/Correlations/Residual Correlations
+              PICA          BLKD
+              ________      ________
+ PICA           0.000
+ BLKD           0.030         0.000
+
+
+           Standardized Residuals (z-scores) for Covariances/Correlations/Residual Corr
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+ INFO           0.000
+ VOCA           1.616         0.000
+ COMP          -1.990        -1.125         0.018
+ SIMI          -0.922        -3.043         2.953       999.000
+ PICC          -0.648         0.719        -0.640         0.299       999.000
+ PICA           0.963        -0.377         0.064        -1.707         0.847
+ BLKD           0.339         0.445        -1.693         0.687        -0.797
+
+
+           Standardized Residuals (z-scores) for Covariances/Correlations/Residual Corr
+              PICA          BLKD
+              ________      ________
+ PICA         999.000
+ BLKD           0.526         0.042
+
+
+           Normalized Residuals for Covariances/Correlations/Residual Correlations
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+ INFO           0.000
+ VOCA           0.062         0.000
+ COMP          -0.232        -0.037         0.000
+ SIMI          -0.159        -0.123         0.932         0.000
+ PICC          -0.132         0.069        -0.174         0.069         0.000
+ PICA           0.235        -0.031         0.020        -0.412         0.136
+ BLKD           0.073         0.040        -0.444         0.158        -0.116
+
+
+           Normalized Residuals for Covariances/Correlations/Residual Correlations
+              PICA          BLKD
+              ________      ________
+ PICA           0.000
+ BLKD           0.082         0.000
+
+
+     ESTIMATED MODEL AND RESIDUALS (OBSERVED - ESTIMATED) FOR FEMALES
+
+
+           Model Estimated Means/Intercepts/Thresholds
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+      1         8.978         9.252         9.329         8.973         8.659
+
+
+           Model Estimated Means/Intercepts/Thresholds
+              PICA          BLKD
+              ________      ________
+      1         8.537         8.421
+
+
+           Residuals for Means/Intercepts/Thresholds
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+      1         0.000         0.000         0.000         0.000         0.000
+
+
+           Residuals for Means/Intercepts/Thresholds
+              PICA          BLKD
+              ________      ________
+      1         0.000         0.000
+
+
+           Standardized Residuals (z-scores) for Means/Intercepts/Thresholds
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+      1         0.000         0.000         0.000         0.000         0.000
+
+
+           Standardized Residuals (z-scores) for Means/Intercepts/Thresholds
+              PICA          BLKD
+              ________      ________
+      1         0.000         0.000
+
+
+           Normalized Residuals for Means/Intercepts/Thresholds
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+      1         0.000         0.000         0.000         0.000         0.000
+
+
+           Normalized Residuals for Means/Intercepts/Thresholds
+              PICA          BLKD
+              ________      ________
+      1         0.000         0.000
+
+
+           Model Estimated Covariances/Correlations/Residual Correlations
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+ INFO           7.849
+ VOCA           6.798         8.797
+ COMP           6.232         6.956         9.325
+ SIMI           6.203         6.894         6.598        10.109
+ PICC           4.705         5.124         5.448         6.080        10.489
+ PICA           4.153         4.539         4.743         5.230         5.886
+ BLKD           3.707         4.035         4.297         4.801         5.615
+
+
+           Model Estimated Covariances/Correlations/Residual Correlations
+              PICA          BLKD
+              ________      ________
+ PICA           9.551
+ BLKD           4.659         8.193
+
+
+           Residuals for Covariances/Correlations/Residual Correlations
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+ INFO           0.000
+ VOCA           0.037         0.000
+ COMP          -0.107        -0.003         0.000
+ SIMI          -0.011        -0.085         0.281         0.000
+ PICC           0.024         0.024        -0.022        -0.134         0.000
+ PICA           0.006        -0.024         0.018         0.063         0.025
+ BLKD           0.006         0.032        -0.132         0.038         0.062
+
+
+           Residuals for Covariances/Correlations/Residual Correlations
+              PICA          BLKD
+              ________      ________
+ PICA           0.000
+ BLKD          -0.077         0.000
+
+
+           Standardized Residuals (z-scores) for Covariances/Correlations/Residual Corr
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+ INFO           0.015
+ VOCA           1.980         0.000
+ COMP          -3.956        -0.157         0.023
+ SIMI          -0.202        -6.725         2.810         0.025
+ PICC           0.458         0.679        -0.342        -2.310         0.036
+ PICA           0.089        -0.563         0.183         0.615         0.556
+ BLKD           0.099         0.754        -1.734         0.444         2.419
+
+
+           Standardized Residuals (z-scores) for Covariances/Correlations/Residual Corr
+              PICA          BLKD
+              ________      ________
+ PICA           0.016
+ BLKD          -1.077         0.016
+
+
+           Normalized Residuals for Covariances/Correlations/Residual Correlations
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+ INFO           0.000
+ VOCA           0.105         0.000
+ COMP          -0.311        -0.009         0.000
+ SIMI          -0.030        -0.225         0.724         0.000
+ PICC           0.071         0.067        -0.060        -0.346         0.000
+ PICA           0.021        -0.071         0.052         0.173         0.066
+ BLKD           0.021         0.103        -0.417         0.113         0.174
+
+
+           Normalized Residuals for Covariances/Correlations/Residual Correlations
+              PICA          BLKD
+              ________      ________
+ PICA           0.000
+ BLKD          -0.238         0.000
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION FOR MALES
+
+
+           NU
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+      1           1             0             2             3             4
+
+
+           NU
+              PICA          BLKD
+              ________      ________
+      1           5             0
+
+
+           LAMBDA
+              F1            F2
+              ________      ________
+ INFO               6             7
+ VOCA               0             0
+ COMP               8             9
+ SIMI              10            11
+ PICC              12            13
+ PICA              14            15
+ BLKD               0             0
+
+
+           THETA
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+ INFO              16
+ VOCA               0            17
+ COMP               0             0            18
+ SIMI               0             0             0            19
+ PICC               0             0             0             0            20
+ PICA               0             0             0             0             0
+ BLKD               0             0             0             0             0
+
+
+           THETA
+              PICA          BLKD
+              ________      ________
+ PICA              21
+ BLKD               0            22
+
+
+           ALPHA
+              F1            F2
+              ________      ________
+      1          23            24
+
+
+           BETA
+              F1            F2
+              ________      ________
+ F1                 0             0
+ F2                 0             0
+
+
+           PSI
+              F1            F2
+              ________      ________
+ F1                25
+ F2                26            27
+
+
+     PARAMETER SPECIFICATION FOR FEMALES
+
+
+           NU
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+      1          28             0            29            30            31
+
+
+           NU
+              PICA          BLKD
+              ________      ________
+      1          32             0
+
+
+           LAMBDA
+              F1            F2
+              ________      ________
+ INFO              33            34
+ VOCA               0             0
+ COMP              35            36
+ SIMI              37            38
+ PICC              39            40
+ PICA              41            42
+ BLKD               0             0
+
+
+           THETA
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+ INFO              43
+ VOCA               0            44
+ COMP               0             0            45
+ SIMI               0             0             0            46
+ PICC               0             0             0             0            47
+ PICA               0             0             0             0             0
+ BLKD               0             0             0             0             0
+
+
+           THETA
+              PICA          BLKD
+              ________      ________
+ PICA              48
+ BLKD               0            49
+
+
+           ALPHA
+              F1            F2
+              ________      ________
+      1          50            51
+
+
+           BETA
+              F1            F2
+              ________      ________
+ F1                 0             0
+ F2                 0             0
+
+
+           PSI
+              F1            F2
+              ________      ________
+ F1                52
+ F2                53            54
+
+
+     STARTING VALUES FOR MALES
+
+
+           NU
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+      1         0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              PICA          BLKD
+              ________      ________
+      1         0.000         0.000
+
+
+           LAMBDA
+              F1            F2
+              ________      ________
+ INFO           0.500         0.000
+ VOCA           1.000         0.000
+ COMP           0.500         0.000
+ SIMI           0.500         0.000
+ PICC           0.000         0.500
+ PICA           0.000         0.500
+ BLKD           0.000         1.000
+
+
+           THETA
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+ INFO           4.819
+ VOCA           0.000         4.676
+ COMP           0.000         0.000         4.787
+ SIMI           0.000         0.000         0.000         5.185
+ PICC           0.000         0.000         0.000         0.000         4.493
+ PICA           0.000         0.000         0.000         0.000         0.000
+ BLKD           0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              PICA          BLKD
+              ________      ________
+ PICA           4.805
+ BLKD           0.000         4.789
+
+
+           ALPHA
+              F1            F2
+              ________      ________
+      1         0.000         0.000
+
+
+           BETA
+              F1            F2
+              ________      ________
+ F1             0.000         0.000
+ F2             0.000         0.000
+
+
+           PSI
+              F1            F2
+              ________      ________
+ F1             9.000
+ F2             0.000         9.000
+
+
+     STARTING VALUES FOR FEMALES
+
+
+           NU
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+      1         0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              PICA          BLKD
+              ________      ________
+      1         0.000         0.000
+
+
+           LAMBDA
+              F1            F2
+              ________      ________
+ INFO           0.500         0.000
+ VOCA           1.000         0.000
+ COMP           0.500         0.000
+ SIMI           0.500         0.000
+ PICC           0.000         0.500
+ PICA           0.000         0.500
+ BLKD           0.000         1.000
+
+
+           THETA
+              INFO          VOCA          COMP          SIMI          PICC
+              ________      ________      ________      ________      ________
+ INFO           4.819
+ VOCA           0.000         4.676
+ COMP           0.000         0.000         4.787
+ SIMI           0.000         0.000         0.000         5.185
+ PICC           0.000         0.000         0.000         0.000         4.493
+ PICA           0.000         0.000         0.000         0.000         0.000
+ BLKD           0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              PICA          BLKD
+              ________      ________
+ PICA           4.805
+ BLKD           0.000         4.789
+
+
+           ALPHA
+              F1            F2
+              ________      ________
+      1         0.000         0.000
+
+
+           BETA
+              F1            F2
+              ________      ________
+ F1             0.000         0.000
+ F2             0.000         0.000
+
+
+           PSI
+              F1            F2
+              ________      ________
+ F1             9.000
+ F2             0.000         9.000
+
+
+     Beginning Time:  17:39:18
+        Ending Time:  17:39:18
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2011 Muthen & Muthen

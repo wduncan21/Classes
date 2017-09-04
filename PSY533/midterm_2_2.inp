@@ -1,0 +1,20 @@
+TITLE: midterm 1.2 Background  model;
+DATA:
+file = "B:\dropbox\class\Spring 2014\PSY533\midterm_2.txt";
+type = correlation;
+nobservations = 3956;
+
+VARIABLE:
+names are DATVB DATNU EASSV TCHRG INDMA FLWIN;
+USEVARIABLES ARE DATVB DATNU EASSV TCHRG INDMA FLWIN;
+
+ANALYSIS: TYPE = GENERAL;
+          ITERATIONS=3000;
+          ESTIMATOR=ML;
+MODEL:    F1 BY  DATVB TCHRG;
+          F2 by  DATNU INDMA;
+		  F3 by  EASSV FLWIN;
+OUTPUT: sampstat standardized residual;
+
+
+

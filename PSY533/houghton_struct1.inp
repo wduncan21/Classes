@@ -1,0 +1,20 @@
+TITLE:  Houghton & Jinkerson (2007)
+        SR model, Figure 10.3, Table 10.1
+DATA:
+  FILE IS "houghton-mplus.dat";
+  TYPE IS STDEVIATIONS CORRELATION;
+  NOBSERVATIONS = 263;
+VARIABLE:
+  NAMES ARE work1 work2 work3 happy mood1 mood2
+  perform1 perform2 approval beliefs selftalk imagery;
+ANALYSIS:
+  TYPE IS GENERAL;
+MODEL:
+  Construc BY beliefs selftalk imagery;
+  Dysfunc BY perform1 perform2 approval;
+  WellBe BY happy mood1 mood2;
+  JobSat BY work1 work2 work3;
+  Dysfunc ON Construc;
+  WellBe ON Dysfunc;
+  JobSat ON Wellbe Dysfunc;
+OUTPUT:  SAMPSTAT RESIDUAL MOD(1.0) STDYX;

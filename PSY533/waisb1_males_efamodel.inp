@@ -1,0 +1,14 @@
+TITLE: WAISR Standardization data males efa model
+DATA: FILE = JWAISRM.dat;
+VARIABLE: NAMES ARE sex, info digs voca arit comp simi
+            picc pica blkd obja digy;
+	    USEVARIABLES ARE info voca comp simi picc pica blkd;
+ANALYSIS: TYPE = GENERAL;
+          ITERATIONS=3000;
+          ESTIMATOR=ML;
+MODEL:    F1 BY info*.5 voca@1 comp*.5 simi*.5 picc*0 pica*0;
+          F2 by info*0 comp*0 simi*0 picc*.5 pica*.5 blkd@1;
+          F1*9 F2*9;
+OUTPUT: sampstat standardized residual mod(0) tech1;
+
+

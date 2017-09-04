@@ -1,0 +1,32 @@
+TITLE: WAISR Standardization data males vs females strict inv except info
+DATA: FILE (males) = jwaisrm.dat;
+      FILE (females) = jwaisrf.dat;
+VARIABLE: NAMES ARE sex, info digs voca arit comp simi
+            picc pica blkd obja digy;
+	    USEVARIABLES ARE info voca comp simi picc pica blkd;
+ANALYSIS: TYPE = MGROUP MEANSTRUCTURE;
+          ITERATIONS=3000;
+          ESTIMATOR=ML;
+MODEL:    F1 BY info*.5 voca@1 comp*.5 simi*.5 picc*0 pica*0;
+          F2 by info*0 comp*0 simi*0 picc*.5 pica*.5 blkd@1;
+          [info voca@0 comp simi picc pica  blkd@0];
+          F1*9 F2*9;
+          info (1);
+          voca (2);
+          comp (3);
+          simi (4);
+          picc (5);
+          pica (6);
+          blkd (7);
+MODEL males: [F1 F2];
+MODEL females: [F1 F2]; [info];
+          info (1);
+          voca (2);
+          comp (3);
+          simi (4);
+          picc (5);
+          pica (6);
+          blkd (7);
+OUTPUT: sampstat standardized residual tech1;
+
+

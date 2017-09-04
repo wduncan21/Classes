@@ -1,0 +1,12 @@
+TITLE: Generating alternative Cov matrix
+DATA: FILE IS simplecorr.dat;
+     TYPE IS COVA;
+     NOBSERVATIONS ARE 200;
+VARIABLE: NAMES ARE X1 Y1 Y2 Y3;
+          USEVARIABLES ARE X1 Y1 Y2 Y3;
+ANALYSIS: TYPE = GENERAL;
+MODEL: Y1 on X1@.6;
+       Y2 on Y1@.3; Y3 on Y1@.3 X1@.2;
+       X1@1.0; Y1@.5; Y2@.5 Y3@.5;
+       Y2 with Y3@.1;
+OUTPUT: RES STAND;

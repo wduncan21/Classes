@@ -1,0 +1,26 @@
+> ##df2=12
+> R<-1000
+> p<-double(R)
+> for(i in 1:R) {
++     X<-rf(50,5,12)
++     Y<-5*X
++     p[i]<-ks.test(Y,"pchisq",df=5,exact=TRUE)$p.value
++ }
+> 
+> power<-(sum(p<0.05))/R
+> power
+[1] 0.151
+> 
+> 
+> ##df2=40
+> R<-1000
+> p<-double(R)
+> for(i in 1:R) {
++     X<-rf(50,5,40)
++     Y<-5*X
++     p[i]<-ks.test(Y,"pchisq",df=5,exact=TRUE)$p.value
++ }
+> 
+> power<-(sum(p<0.05))/R
+> power
+[1] 0.075

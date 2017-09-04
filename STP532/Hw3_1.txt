@@ -1,0 +1,19 @@
+> x=c(72,94,91,84,80,58,46,47,49,76,86,64,86,87,93,65,48,71,85,59)
+> x
+ [1] 72 94 91 84 80 58 46 47 49 76 86 64 86 87 93 65 48 71 85 59
+> length(x)
+[1] 20
+
+> library("exactRankTests", lib.loc="C:/Users/Mr.Wang/Documents/R/win-library/3.0")
+ Package ‘exactRankTests’ is no longer under development.
+ Please consider using package ‘coin’ instead.
+
+Warning message:
+程辑包‘exactRankTests’是用R版本3.0.2 来建造的 
+> perm.test(x,mu=70,exxact=TRUE,tol=0.001,alternative="greater")
+
+	1-sample Permutation Test
+
+data:  x
+T = 165, p-value = 0.2942
+alternative hypothesis: true mu is greater than 70

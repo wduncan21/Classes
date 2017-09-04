@@ -1,0 +1,78 @@
+library(boot)
+loop=1000
+lboundt<-rep(NA,loop)
+uboundt<-rep(NA,loop)
+lboundb<-rep(NA,loop)
+uboundb<-rep(NA,loop)
+lboundbca<-rep(NA,loop)
+uboundbca<-rep(NA,loop)
+samplemedian <- function(data, d) {return(median(data[d]))}
+truevalue<-20
+
+##Normal distriubtion
+for (i in 1:loop) {
+     x<-rnorm(30, mean = 20, sd = 5)     
+     #monte carlo simulation
+     lboundt[i]<-t.test(x,alternative="two.sided",mu=20,conf.level=0.95)$conf.int[1]
+     uboundt[i]<-t.test(x,alternative="two.sided",mu=20,conf.level=0.95)$conf.int[2]
+     #bootstrap simulation
+     bresult = boot(x,samplemedian, R= 1000)
+     #BCa simulation
+     bciresult<-boot.ci(bresult,type=c("perc","bca"))
+     lboundb[i]<-quantile(bresult$t[,1],0.025)
+     uboundb[i]<-quantile(bresult$t[,1],0.975)     
+     lboundbca[i]<-bciresult$bca[,4]
+     uboundbca[i]<-bciresult$bca[,5]
+
+}
+
+mean((lboundt<=truevalue)&(truevalue<=uboundt))  #t
+mean((lboundb<=truevalue)&(truevalue<=uboundb))  #bootstrp
+mean((lboundbca<=truevalue)&(truevalue<=uboundbca))  #Bca
+
+
+
+
+
+##uniform distriubtion
+for (i in 1:loop) {
+     x<-runif(30, 10,30)     
+     #monte carlo simulation
+     lboundt[i]<-t.test(x,alternative="two.sided",mu=20,conf.level=0.95)$conf.int[1]
+     uboundt[i]<-t.test(x,alternative="two.sided",mu=20,conf.level=0.95)$conf.int[2]
+     #bootstrap simulation
+     bresult = boot(x,samplemedian, R= 1000)
+     #BCa simulation
+     bciresult<-boot.ci(bresult,type=c("perc","bca"))
+     lboundb[i]<-quantile(bresult$t[,1],0.025)
+     uboundb[i]<-quantile(bresult$t[,1],0.975)     
+     lboundbca[i]<-bciresult$bca[,4]
+     uboundbca[i]<-bciresult$bca[,5]
+
+}
+
+mean((lboundt<=truevalue)&(truevalue<=uboundt))  #t
+mean((lboundb<=truevalue)&(truevalue<=uboundb))  #bootstrp
+mean((lboundbca<=truevalue)&(truevalue<=uboundbca))  #Bca
+
+
+##chi-square distriubtion
+for (i in 1:loop) {
+     x<-rchisq(30,11)     
+     #monte carlo simulation
+     lboundt[i]<-t.test(x,alternative="two.sided",mu=20,conf.level=0.95)$conf.int[1]
+     uboundt[i]<-t.test(x,alternative="two.sided",mu=20,conf.level=0.95)$conf.int[2]
+     #bootstrap simulation
+     bresult = boot(x,samplemedian, R= 1000)
+     #BCa simulation
+     bciresult<-boot.ci(bresult,type=c("perc","bca"))
+     lboundb[i]<-quantile(bresult$t[,1],0.025)
+     uboundb[i]<-quantile(bresult$t[,1],0.975)     
+     lboundbca[i]<-bciresult$bca[,4]
+     uboundbca[i]<-bciresult$bca[,5]
+
+}
+
+mean((lboundt<=truevalue)&(truevalue<=uboundt))  #t
+mean((lboundb<=truevalue)&(truevalue<=uboundb))  #bootstrp
+mean((lboundbca<=truevalue)&(truevalue<=uboundbca))  #Bca

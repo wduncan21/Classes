@@ -1,0 +1,401 @@
+Mplus VERSION 6.12
+MUTHEN & MUTHEN
+03/25/2014   8:13 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: midterm 1.2 Background  model;
+  DATA:
+  file = "B:\dropbox\class\Spring 2014\PSY533\midterm_2.txt";
+  type = correlation;
+  nobservations = 3956;
+
+  VARIABLE:
+  names are DATVB DATNU EASSV TCHRG INDMA FLWIN;
+  USEVARIABLES ARE DATVB DATNU EASSV TCHRG INDMA FLWIN;
+
+  ANALYSIS: TYPE = GENERAL;
+            ITERATIONS=3000;
+            ESTIMATOR=ML;
+  MODEL:    F1 BY  DATVB TCHRG;
+            F2 by  DATNU INDMA;
+                    F3 by  EASSV FLWIN;
+  OUTPUT: sampstat standardized residual;
+
+
+
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+midterm 1.2 Background  model;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3956
+
+Number of dependent variables                                    6
+Number of independent variables                                  0
+Number of continuous latent variables                            3
+
+Observed dependent variables
+
+  Continuous
+   DATVB       DATNU       EASSV       TCHRG       INDMA       FLWIN
+
+Continuous latent variables
+   F1          F2          F3
+
+
+Estimator                                                       ML
+Information matrix                                        EXPECTED
+Maximum number of iterations                                  3000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+
+Input data file(s)
+  B:\dropbox\class\Spring 2014\PSY533\midterm_2.txt
+
+Input data format  FREE
+
+
+SAMPLE STATISTICS
+
+
+     SAMPLE STATISTICS
+
+
+           Covariances/Correlations/Residual Correlations
+              DATVB         DATNU         EASSV         TCHRG         INDMA
+              ________      ________      ________      ________      ________
+ DATVB          1.000
+ DATNU          0.660         1.000
+ EASSV          0.470         0.480         1.000
+ TCHRG          0.680         0.570         0.420         1.000
+ INDMA          0.540         0.640         0.440         0.510         1.000
+ FLWIN          0.690         0.630         0.530         0.630         0.600
+
+
+           Covariances/Correlations/Residual Correlations
+              FLWIN
+              ________
+ FLWIN          1.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       15
+
+Loglikelihood
+
+          H0 Value                      -27567.832
+          H1 Value                      -27515.777
+
+Information Criteria
+
+          Akaike (AIC)                   55165.663
+          Bayesian (BIC)                 55259.908
+          Sample-Size Adjusted BIC       55212.245
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                            104.109
+          Degrees of Freedom                     6
+          P-Value                           0.0000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.064
+          90 Percent C.I.                    0.054  0.075
+          Probability RMSEA <= .05           0.013
+
+CFI/TLI
+
+          CFI                                0.992
+          TLI                                0.980
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                          12322.295
+          Degrees of Freedom                    15
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.014
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ F1       BY
+    DATVB              1.000      0.000    999.000    999.000
+    TCHRG              0.901      0.016     55.256      0.000
+
+ F2       BY
+    DATNU              1.000      0.000    999.000    999.000
+    INDMA              0.893      0.018     49.662      0.000
+
+ F3       BY
+    EASSV              1.000      0.000    999.000    999.000
+    FLWIN              1.413      0.036     39.160      0.000
+
+ F2       WITH
+    F1                 0.638      0.019     34.251      0.000
+
+ F3       WITH
+    F1                 0.487      0.017     28.728      0.000
+    F2                 0.461      0.016     28.078      0.000
+
+ Variances
+    F1                 0.754      0.024     32.069      0.000
+    F2                 0.716      0.024     30.194      0.000
+    F3                 0.375      0.019     20.089      0.000
+
+ Residual Variances
+    DATVB              0.246      0.010     23.549      0.000
+    DATNU              0.284      0.012     24.082      0.000
+    EASSV              0.625      0.015     40.521      0.000
+    TCHRG              0.387      0.011     34.288      0.000
+    INDMA              0.428      0.012     34.380      0.000
+    FLWIN              0.251      0.014     18.067      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ F1       BY
+    DATVB              0.869      0.006    135.324      0.000
+    TCHRG              0.783      0.008    101.971      0.000
+
+ F2       BY
+    DATNU              0.846      0.007    114.607      0.000
+    INDMA              0.756      0.009     88.102      0.000
+
+ F3       BY
+    EASSV              0.612      0.011     54.629      0.000
+    FLWIN              0.865      0.008    103.637      0.000
+
+ F2       WITH
+    F1                 0.868      0.009     93.246      0.000
+
+ F3       WITH
+    F1                 0.915      0.010     92.475      0.000
+    F2                 0.889      0.011     82.672      0.000
+
+ Variances
+    F1                 1.000      0.000    999.000    999.000
+    F2                 1.000      0.000    999.000    999.000
+    F3                 1.000      0.000    999.000    999.000
+
+ Residual Variances
+    DATVB              0.246      0.011     22.030      0.000
+    DATNU              0.284      0.013     22.686      0.000
+    EASSV              0.625      0.014     45.516      0.000
+    TCHRG              0.387      0.012     32.195      0.000
+    INDMA              0.428      0.013     32.994      0.000
+    FLWIN              0.251      0.014     17.367      0.000
+
+
+STDY Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ F1       BY
+    DATVB              0.869      0.006    135.324      0.000
+    TCHRG              0.783      0.008    101.971      0.000
+
+ F2       BY
+    DATNU              0.846      0.007    114.607      0.000
+    INDMA              0.756      0.009     88.102      0.000
+
+ F3       BY
+    EASSV              0.612      0.011     54.629      0.000
+    FLWIN              0.865      0.008    103.637      0.000
+
+ F2       WITH
+    F1                 0.868      0.009     93.246      0.000
+
+ F3       WITH
+    F1                 0.915      0.010     92.475      0.000
+    F2                 0.889      0.011     82.672      0.000
+
+ Variances
+    F1                 1.000      0.000    999.000    999.000
+    F2                 1.000      0.000    999.000    999.000
+    F3                 1.000      0.000    999.000    999.000
+
+ Residual Variances
+    DATVB              0.246      0.011     22.030      0.000
+    DATNU              0.284      0.013     22.686      0.000
+    EASSV              0.625      0.014     45.516      0.000
+    TCHRG              0.387      0.012     32.195      0.000
+    INDMA              0.428      0.013     32.994      0.000
+    FLWIN              0.251      0.014     17.367      0.000
+
+
+STD Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ F1       BY
+    DATVB              0.868      0.014     64.139      0.000
+    TCHRG              0.783      0.014     55.867      0.000
+
+ F2       BY
+    DATNU              0.846      0.014     60.389      0.000
+    INDMA              0.756      0.014     52.452      0.000
+
+ F3       BY
+    EASSV              0.612      0.015     40.179      0.000
+    FLWIN              0.865      0.015     59.449      0.000
+
+ F2       WITH
+    F1                 0.868      0.009     93.246      0.000
+
+ F3       WITH
+    F1                 0.915      0.010     92.475      0.000
+    F2                 0.889      0.011     82.672      0.000
+
+ Variances
+    F1                 1.000      0.000    999.000    999.000
+    F2                 1.000      0.000    999.000    999.000
+    F3                 1.000      0.000    999.000    999.000
+
+ Residual Variances
+    DATVB              0.246      0.010     23.549      0.000
+    DATNU              0.284      0.012     24.082      0.000
+    EASSV              0.625      0.015     40.521      0.000
+    TCHRG              0.387      0.011     34.288      0.000
+    INDMA              0.428      0.012     34.380      0.000
+    FLWIN              0.251      0.014     18.067      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    DATVB              0.754      0.011     67.662      0.000
+    DATNU              0.716      0.013     57.304      0.000
+    EASSV              0.375      0.014     27.315      0.000
+    TCHRG              0.613      0.012     50.985      0.000
+    INDMA              0.572      0.013     44.051      0.000
+    FLWIN              0.749      0.014     51.819      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.432E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+RESIDUAL OUTPUT
+
+
+     ESTIMATED MODEL AND RESIDUALS (OBSERVED - ESTIMATED)
+
+
+           Model Estimated Covariances/Correlations/Residual Correlations
+              DATVB         DATNU         EASSV         TCHRG         INDMA
+              ________      ________      ________      ________      ________
+ DATVB          1.000
+ DATNU          0.638         1.000
+ EASSV          0.487         0.461         1.000
+ TCHRG          0.680         0.575         0.439         1.000
+ INDMA          0.570         0.640         0.412         0.514         1.000
+ FLWIN          0.688         0.651         0.530         0.620         0.582
+
+
+           Model Estimated Covariances/Correlations/Residual Correlations
+              FLWIN
+              ________
+ FLWIN          1.000
+
+
+           Residuals for Covariances/Correlations/Residual Correlations
+              DATVB         DATNU         EASSV         TCHRG         INDMA
+              ________      ________      ________      ________      ________
+ DATVB          0.000
+ DATNU          0.022         0.000
+ EASSV         -0.017         0.019         0.000
+ TCHRG          0.000        -0.005        -0.019         0.000
+ INDMA         -0.030         0.000         0.028        -0.004         0.000
+ FLWIN          0.002        -0.021         0.000         0.010         0.018
+
+
+           Residuals for Covariances/Correlations/Residual Correlations
+              FLWIN
+              ________
+ FLWIN          0.000
+
+
+           Standardized Residuals (z-scores) for Covariances/Correlations/Residual Corr
+              DATVB         DATNU         EASSV         TCHRG         INDMA
+              ________      ________      ________      ________      ________
+ DATVB          0.000
+ DATNU          5.512         0.040
+ EASSV         -3.613         2.981         0.038
+ TCHRG          0.000        -1.197        -2.831         0.000
+ INDMA        -10.049         0.035         3.505        -0.662         0.000
+ FLWIN          0.949       999.000         0.045         2.682         4.201
+
+
+           Standardized Residuals (z-scores) for Covariances/Correlations/Residual Corr
+              FLWIN
+              ________
+ FLWIN          0.000
+
+
+           Normalized Residuals for Covariances/Correlations/Residual Correlations
+              DATVB         DATNU         EASSV         TCHRG         INDMA
+              ________      ________      ________      ________      ________
+ DATVB          0.000
+ DATNU          1.153         0.000
+ EASSV         -0.954         1.092         0.000
+ TCHRG          0.000        -0.280        -1.088         0.000
+ INDMA         -1.660         0.000         1.635        -0.213         0.000
+ FLWIN          0.110        -1.123         0.000         0.529         0.989
+
+
+           Normalized Residuals for Covariances/Correlations/Residual Correlations
+              FLWIN
+              ________
+ FLWIN          0.000
+
+
+     Beginning Time:  20:13:44
+        Ending Time:  20:13:44
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2011 Muthen & Muthen

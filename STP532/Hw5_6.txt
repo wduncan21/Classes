@@ -1,0 +1,23 @@
+> x<-c(111,107,100,99,102,106,109,108,104,99,101,96,97,102,107,113,116,113,110,98)
+> y<-c(107,108,106,98,105,103,110,105,104,100,96,108,103,104,114,114,113,108,106,99)
+> xandy<-data.frame(x,y)
+> bootin<-function(xandy,d1,d2){
++     d1=sample(1:20, size=20, replace=T) 
++     d2=sample(1:20, size=20, replace=T)
++     return(var(xandy$x[d1])/var(xandy$y[d2]))}
+> bootresult<-boot(xandy,bootin,R=10000)
+> boot.ci(boot.out=bootresult,type=c("perc","bca"))
+BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+Based on 10000 bootstrap replicates
+
+CALL : 
+boot.ci(boot.out = bootresult, type = c("perc", "bca"))
+
+Intervals : 
+Level     Percentile            BCa          
+95%   ( 0.695,  3.100 )   ( 0.607,  2.600 )  
+Calculations and Intervals on Original Scale
+> ts=var(x)/var(y)
+> pvalue=mean(abs(bootresult$t[,1])>=abs(ts))
+> pvalue
+[1] 0.5058

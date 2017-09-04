@@ -1,0 +1,8 @@
+TITLE: CESD data from Gregorich(2006)
+DATA: FILE = CESD_WBdata.dat;
+      TYPE IS means cova;
+      NGROUPS = 2;
+      NOBSERVATIONS = 2004 248;
+VARIABLE: NAMES ARE CESD1 CESD2 CESD7 CESD11 CESD20;
+
+ 

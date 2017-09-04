@@ -1,0 +1,13 @@
+TITLE: Bollen's union sentiment model p.83
+DATA: FILE IS "B:\dropbox\class\Spring 2014\PSY533\bollen_uniondat.txt";
+    TYPE IS cova;
+    NOBS IS 173;
+VARIABLE: NAMES ARE defman activ senti years age;
+ANALYSIS: TYPE IS general;
+         ESTIMATOR IS ml;
+MODEL: 
+   defman ON age;
+   activ ON defman age;
+   senti ON defman activ years;
+OUTPUT: 
+   sampstat stand res mod;

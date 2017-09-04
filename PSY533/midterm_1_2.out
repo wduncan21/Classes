@@ -1,0 +1,521 @@
+Mplus VERSION 6.12
+MUTHEN & MUTHEN
+03/22/2014   1:50 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: midterm 1.2 Background  model;
+  DATA:
+  file = "B:\dropbox\class\Spring 2014\PSY533\midterm.dat";
+  type = stdeviations correlation;
+  nobservations = 3094;
+
+  VARIABLE:
+  names are parinc hsrank acadab degasp select occpr income;
+  USEVARIABLES ARE parinc hsrank acadab degasp select occpr income;
+
+  ANALYSIS: TYPE = GENERAL;
+            ITERATIONS=3000;
+            ESTIMATOR=ML;
+  MODEL:    degasp ON  parinc hsrank acadab;
+            select ON parinc hsrank acadab degasp;
+            occpr ON parinc hsrank acadab degasp ;
+            income ON parinc hsrank acadab degasp ;
+                    parinc hsrank acadab with parinc hsrank acadab;
+                    degasp with select@0 occpr@0 income@0;
+                    select with occpr@0 income@0;
+                    occpr with income@0;
+  OUTPUT: sampstat standardized residual mod;
+
+
+
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+midterm 1.2 Background  model;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3094
+
+Number of dependent variables                                    4
+Number of independent variables                                  3
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   DEGASP      SELECT      OCCPR       INCOME
+
+Observed independent variables
+   PARINC      HSRANK      ACADAB
+
+
+Estimator                                                       ML
+Information matrix                                        EXPECTED
+Maximum number of iterations                                  3000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+
+Input data file(s)
+  B:\dropbox\class\Spring 2014\PSY533\midterm.dat
+
+Input data format  FREE
+
+
+SAMPLE STATISTICS
+
+
+     SAMPLE STATISTICS
+
+
+           Covariances/Correlations/Residual Correlations
+              DEGASP        SELECT        OCCPR         INCOME        PARINC
+              ________      ________      ________      ________      ________
+ DEGASP         1.028
+ SELECT         0.432         3.960
+ OCCPR          0.202         0.491         2.531
+ INCOME         0.041         0.240         0.352         2.647
+ PARINC         0.271         1.545         0.249         0.401         7.017
+ HSRANK         0.153         0.575         0.189         0.047         0.113
+ ACADAB         0.178         0.566         0.193         0.077         0.304
+
+
+           Covariances/Correlations/Residual Correlations
+              HSRANK        ACADAB
+              ________      ________
+ HSRANK         0.604
+ ACADAB         0.285         0.554
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       25
+
+Loglikelihood
+
+          H0 Value                      -36039.725
+          H1 Value                      -36006.928
+
+Information Criteria
+
+          Akaike (AIC)                   72129.449
+          Bayesian (BIC)                 72280.380
+          Sample-Size Adjusted BIC       72200.945
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                             65.594
+          Degrees of Freedom                     3
+          P-Value                           0.0000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.082
+          90 Percent C.I.                    0.066  0.100
+          Probability RMSEA <= .05           0.001
+
+CFI/TLI
+
+          CFI                                0.954
+          TLI                                0.722
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           1370.899
+          Degrees of Freedom                    18
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.026
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ DEGASP   ON
+    PARINC             0.026      0.007      3.897      0.000
+    HSRANK             0.136      0.026      5.236      0.000
+    ACADAB             0.237      0.027      8.627      0.000
+
+ SELECT   ON
+    PARINC             0.179      0.012     15.183      0.000
+    HSRANK             0.613      0.046     13.388      0.000
+    ACADAB             0.548      0.049     11.241      0.000
+    DEGASP             0.187      0.031      5.927      0.000
+
+ OCCPR    ON
+    PARINC             0.019      0.011      1.745      0.081
+    HSRANK             0.181      0.042      4.348      0.000
+    ACADAB             0.204      0.044      4.601      0.000
+    DEGASP             0.129      0.029      4.509      0.000
+
+ INCOME   ON
+    PARINC             0.052      0.011      4.691      0.000
+    HSRANK             0.019      0.043      0.443      0.658
+    ACADAB             0.099      0.046      2.164      0.030
+    DEGASP             0.006      0.030      0.211      0.833
+
+ PARINC   WITH
+    HSRANK             0.113      0.037      3.055      0.002
+    ACADAB             0.303      0.036      8.466      0.000
+
+ HSRANK   WITH
+    ACADAB             0.285      0.012     24.596      0.000
+
+ DEGASP   WITH
+    SELECT             0.000      0.000    999.000    999.000
+    OCCPR              0.000      0.000    999.000    999.000
+    INCOME             0.000      0.000    999.000    999.000
+
+ SELECT   WITH
+    OCCPR              0.000      0.000    999.000    999.000
+    INCOME             0.000      0.000    999.000    999.000
+
+ OCCPR    WITH
+    INCOME             0.000      0.000    999.000    999.000
+
+ Variances
+    PARINC             7.015      0.178     39.332      0.000
+    HSRANK             0.604      0.015     39.332      0.000
+    ACADAB             0.553      0.014     39.332      0.000
+
+ Residual Variances
+    DEGASP             0.958      0.024     39.332      0.000
+    SELECT             2.939      0.075     39.332      0.000
+    OCCPR              2.426      0.062     39.332      0.000
+    INCOME             2.616      0.067     39.332      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ DEGASP   ON
+    PARINC             0.068      0.018      3.905      0.000
+    HSRANK             0.104      0.020      5.257      0.000
+    ACADAB             0.174      0.020      8.724      0.000
+
+ SELECT   ON
+    PARINC             0.239      0.015     15.517      0.000
+    HSRANK             0.239      0.018     13.636      0.000
+    ACADAB             0.205      0.018     11.388      0.000
+    DEGASP             0.095      0.016      5.945      0.000
+
+ OCCPR    ON
+    PARINC             0.031      0.018      1.746      0.081
+    HSRANK             0.088      0.020      4.360      0.000
+    ACADAB             0.095      0.021      4.615      0.000
+    DEGASP             0.082      0.018      4.523      0.000
+
+ INCOME   ON
+    PARINC             0.085      0.018      4.708      0.000
+    HSRANK             0.009      0.021      0.443      0.658
+    ACADAB             0.045      0.021      2.165      0.030
+    DEGASP             0.004      0.019      0.211      0.833
+
+ PARINC   WITH
+    HSRANK             0.055      0.018      3.069      0.002
+    ACADAB             0.154      0.018      8.774      0.000
+
+ HSRANK   WITH
+    ACADAB             0.493      0.014     36.228      0.000
+
+ DEGASP   WITH
+    SELECT             0.000      0.000    999.000    999.000
+    OCCPR              0.000      0.000    999.000    999.000
+    INCOME             0.000      0.000    999.000    999.000
+
+ SELECT   WITH
+    OCCPR              0.000      0.000    999.000    999.000
+    INCOME             0.000      0.000    999.000    999.000
+
+ OCCPR    WITH
+    INCOME             0.000      0.000    999.000    999.000
+
+ Variances
+    PARINC             1.000      0.000    999.000    999.000
+    HSRANK             1.000      0.000    999.000    999.000
+    ACADAB             1.000      0.000    999.000    999.000
+
+ Residual Variances
+    DEGASP             0.932      0.009    106.470      0.000
+    SELECT             0.742      0.014     54.799      0.000
+    OCCPR              0.959      0.007    137.080      0.000
+    INCOME             0.989      0.004    262.078      0.000
+
+
+STDY Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ DEGASP   ON
+    PARINC             0.068      0.018      3.905      0.000
+    HSRANK             0.104      0.020      5.257      0.000
+    ACADAB             0.174      0.020      8.724      0.000
+
+ SELECT   ON
+    PARINC             0.239      0.015     15.517      0.000
+    HSRANK             0.239      0.018     13.636      0.000
+    ACADAB             0.205      0.018     11.388      0.000
+    DEGASP             0.095      0.016      5.945      0.000
+
+ OCCPR    ON
+    PARINC             0.031      0.018      1.746      0.081
+    HSRANK             0.088      0.020      4.360      0.000
+    ACADAB             0.095      0.021      4.615      0.000
+    DEGASP             0.082      0.018      4.523      0.000
+
+ INCOME   ON
+    PARINC             0.085      0.018      4.708      0.000
+    HSRANK             0.009      0.021      0.443      0.658
+    ACADAB             0.045      0.021      2.165      0.030
+    DEGASP             0.004      0.019      0.211      0.833
+
+ PARINC   WITH
+    HSRANK             0.055      0.018      3.069      0.002
+    ACADAB             0.154      0.018      8.774      0.000
+
+ HSRANK   WITH
+    ACADAB             0.493      0.014     36.228      0.000
+
+ DEGASP   WITH
+    SELECT             0.000      0.000    999.000    999.000
+    OCCPR              0.000      0.000    999.000    999.000
+    INCOME             0.000      0.000    999.000    999.000
+
+ SELECT   WITH
+    OCCPR              0.000      0.000    999.000    999.000
+    INCOME             0.000      0.000    999.000    999.000
+
+ OCCPR    WITH
+    INCOME             0.000      0.000    999.000    999.000
+
+ Variances
+    PARINC             1.000      0.000    999.000    999.000
+    HSRANK             1.000      0.000    999.000    999.000
+    ACADAB             1.000      0.000    999.000    999.000
+
+ Residual Variances
+    DEGASP             0.932      0.009    106.470      0.000
+    SELECT             0.742      0.014     54.799      0.000
+    OCCPR              0.959      0.007    137.080      0.000
+    INCOME             0.989      0.004    262.078      0.000
+
+
+STD Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ DEGASP   ON
+    PARINC             0.026      0.007      3.897      0.000
+    HSRANK             0.136      0.026      5.236      0.000
+    ACADAB             0.237      0.027      8.627      0.000
+
+ SELECT   ON
+    PARINC             0.179      0.012     15.183      0.000
+    HSRANK             0.613      0.046     13.388      0.000
+    ACADAB             0.548      0.049     11.241      0.000
+    DEGASP             0.187      0.031      5.927      0.000
+
+ OCCPR    ON
+    PARINC             0.019      0.011      1.745      0.081
+    HSRANK             0.181      0.042      4.348      0.000
+    ACADAB             0.204      0.044      4.601      0.000
+    DEGASP             0.129      0.029      4.509      0.000
+
+ INCOME   ON
+    PARINC             0.052      0.011      4.691      0.000
+    HSRANK             0.019      0.043      0.443      0.658
+    ACADAB             0.099      0.046      2.164      0.030
+    DEGASP             0.006      0.030      0.211      0.833
+
+ PARINC   WITH
+    HSRANK             0.113      0.037      3.055      0.002
+    ACADAB             0.303      0.036      8.466      0.000
+
+ HSRANK   WITH
+    ACADAB             0.285      0.012     24.596      0.000
+
+ DEGASP   WITH
+    SELECT             0.000      0.000    999.000    999.000
+    OCCPR              0.000      0.000    999.000    999.000
+    INCOME             0.000      0.000    999.000    999.000
+
+ SELECT   WITH
+    OCCPR              0.000      0.000    999.000    999.000
+    INCOME             0.000      0.000    999.000    999.000
+
+ OCCPR    WITH
+    INCOME             0.000      0.000    999.000    999.000
+
+ Variances
+    PARINC             7.015      0.178     39.332      0.000
+    HSRANK             0.604      0.015     39.332      0.000
+    ACADAB             0.553      0.014     39.332      0.000
+
+ Residual Variances
+    DEGASP             0.958      0.024     39.332      0.000
+    SELECT             2.939      0.075     39.332      0.000
+    OCCPR              2.426      0.062     39.332      0.000
+    INCOME             2.616      0.067     39.332      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    DEGASP             0.068      0.009      7.797      0.000
+    SELECT             0.258      0.014     19.013      0.000
+    OCCPR              0.041      0.007      5.885      0.000
+    INCOME             0.011      0.004      2.985      0.003
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.108E-01
+       (ratio of smallest to largest eigenvalue)
+
+
+RESIDUAL OUTPUT
+
+
+     ESTIMATED MODEL AND RESIDUALS (OBSERVED - ESTIMATED)
+
+
+           Model Estimated Covariances/Correlations/Residual Correlations
+              DEGASP        SELECT        OCCPR         INCOME        PARINC
+              ________      ________      ________      ________      ________
+ DEGASP         1.028
+ SELECT         0.432         3.959
+ OCCPR          0.202         0.304         2.530
+ INCOME         0.041         0.151         0.037         2.646
+ PARINC         0.271         1.544         0.249         0.401         7.015
+ HSRANK         0.153         0.575         0.189         0.047         0.113
+ ACADAB         0.178         0.565         0.193         0.077         0.303
+
+
+           Model Estimated Covariances/Correlations/Residual Correlations
+              HSRANK        ACADAB
+              ________      ________
+ HSRANK         0.604
+ ACADAB         0.285         0.553
+
+
+           Residuals for Covariances/Correlations/Residual Correlations
+              DEGASP        SELECT        OCCPR         INCOME        PARINC
+              ________      ________      ________      ________      ________
+ DEGASP         0.000
+ SELECT         0.000         0.000
+ OCCPR          0.000         0.187         0.000
+ INCOME         0.000         0.089         0.315         0.000
+ PARINC         0.000         0.000         0.000         0.000         0.000
+ HSRANK         0.000         0.000         0.000         0.000         0.000
+ ACADAB         0.000         0.000         0.000         0.000         0.000
+
+
+           Residuals for Covariances/Correlations/Residual Correlations
+              HSRANK        ACADAB
+              ________      ________
+ HSRANK         0.000
+ ACADAB         0.000         0.000
+
+
+           Standardized Residuals (z-scores) for Covariances/Correlations/Residual Corr
+              DEGASP        SELECT        OCCPR         INCOME        PARINC
+              ________      ________      ________      ________      ________
+ DEGASP         0.000
+ SELECT         0.000       999.000
+ OCCPR          0.000         3.851       999.000
+ INCOME       999.000         1.779         6.885       999.000
+ PARINC         0.037       999.000       999.000       999.000       999.000
+ HSRANK         0.000         0.000       999.000       999.000       999.000
+ ACADAB         0.000       999.000       999.000       999.000       999.000
+
+
+           Standardized Residuals (z-scores) for Covariances/Correlations/Residual Corr
+              HSRANK        ACADAB
+              ________      ________
+ HSRANK         0.000
+ ACADAB         0.000         0.000
+
+
+           Normalized Residuals for Covariances/Correlations/Residual Correlations
+              DEGASP        SELECT        OCCPR         INCOME        PARINC
+              ________      ________      ________      ________      ________
+ DEGASP         0.000
+ SELECT         0.000         0.000
+ OCCPR          0.000         3.244         0.000
+ INCOME         0.000         1.523         6.707         0.000
+ PARINC         0.000         0.000         0.000         0.000         0.000
+ HSRANK         0.000         0.000         0.000         0.000         0.000
+ ACADAB         0.000         0.000         0.000        -0.001         0.000
+
+
+           Normalized Residuals for Covariances/Correlations/Residual Correlations
+              HSRANK        ACADAB
+              ________      ________
+ HSRANK         0.000
+ ACADAB         0.000         0.000
+
+
+MODEL MODIFICATION INDICES
+
+NOTE:  Modification indices for direct effects of observed dependent variables
+regressed on covariates may not be included.  To include these, request
+MODINDICES (ALL).
+
+Minimum M.I. value for printing the modification index    10.000
+
+                            M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+ON Statements
+
+SELECT   ON OCCPR          15.138     0.077      0.077        0.062
+OCCPR    ON SELECT         15.137     0.064      0.064        0.079
+OCCPR    ON INCOME         48.321     0.120      0.120        0.123
+INCOME   ON OCCPR          48.320     0.130      0.130        0.127
+
+WITH Statements
+
+OCCPR    WITH SELECT       15.138     0.187      0.187        0.070
+INCOME   WITH OCCPR        48.321     0.315      0.315        0.125
+
+
+     Beginning Time:  13:50:55
+        Ending Time:  13:50:55
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2011 Muthen & Muthen

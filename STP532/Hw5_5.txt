@@ -1,0 +1,18 @@
+> X <- c(1651,1112,102.4,100,67.6,65.9,64.7,39.6,31)
+> Y <- c(48.1,48,45.5,41.7,35.4,34.3,32.4,29.1,27.3,18.9,6.6,5.2,4.7)
+> M <- combn(22,9)
+> d<-M[,1]
+> XandY<-c(X,Y)
+> mean(XandY[d])-mean(XandY[-d])
+[1] 330.3402
+> mean(X)-mean(Y)
+[1] 330.3402
+> size<-choose(22,9)
+> permdist<-rep(NA,size)
+> ts<-mean(X)-mean(Y)
+> for(k in 1:size)
++ {d<-M[,k]
++  permdist[k]<-mean(XandY[d])-mean(XandY[-d])}
+> pvalue=mean(permdist>=ts)
+> pvalue
+[1] 8.845644e-05

@@ -1,0 +1,68 @@
+> x=load("B:\\Dropbox\\class\\Spring 2014\\STP532\\waittime.Rdata")
+
+> hist(waittime)
+> psample<-sample(waittime,replace=T)
+> psample
+  [1] 1.8 0.2 0.5 0.8 2.8 0.2 0.2 2.1 1.6 0.8 0.8 0.3 0.1 0.5 0.2 0.7 0.1 1.1 0.1 0.0 0.4 0.8 1.3 1.1 1.7 0.9 0.1 1.2 1.1
+ [30] 0.8 1.4 0.8 0.2 0.1 0.6 0.2 0.2 1.3 0.2 1.1 0.4 0.9 0.4 1.2 0.6 0.5 1.5 0.5 1.9 0.2 0.3 1.9 0.8 0.0 0.9 1.2 0.2 0.9
+ [59] 2.5 0.1 1.3 0.2 0.0 2.0 0.3 2.1 1.7 0.9 0.2 0.6 0.3 0.6 0.8 1.6 1.0 1.6 1.0 0.9 0.1 1.7 3.6 1.2 0.8 2.1 0.5 2.0 1.8
+ [88] 1.4 1.1 0.7 2.2 1.6 0.6 0.9 0.6 1.7 1.7 0.8 0.2 1.3 0.5 3.9 1.3 5.6 0.4 1.6 3.2 1.2 1.4 0.4 4.8 0.4 0.1 0.9 0.8 0.0
+[117] 0.1 1.5 0.8 0.3 1.5 0.9 0.4 0.0 0.2 1.1 0.4 2.5 2.4 0.1 1.6 0.7 1.6 1.3 0.9 1.3 0.8 0.5 1.9 0.3 1.4 0.5 2.0 0.5 1.3
+[146] 1.1 0.8 0.0 3.2 0.2 0.2 1.1 0.3 0.8 2.3 0.9 0.3 1.1 1.8 2.1 1.5 0.4 1.7 3.6 1.2 2.7 0.0 1.1 0.4 0.7 0.8 0.0 0.8 0.1
+[175] 0.8 2.7 3.6 0.8 1.2 0.8 0.7 1.8 1.4 1.2 1.0 2.1 1.1 0.0 1.5 0.9 0.1 0.5 0.9 1.3 0.2 0.4 0.4 0.8 4.2 0.7 2.6 0.8 1.8
+[204] 2.1 1.4 0.1 1.0 3.9 0.6 0.2 2.0 0.5 1.4 0.2 2.5 0.2 1.1 0.2 0.4 1.5 0.5 0.2 4.2 0.5 0.1 0.0 1.4 0.2 0.2 0.9 0.2 1.1
+[233] 2.0 3.2 0.9 1.6 0.3 2.1 0.7 0.1 0.5 0.8 0.4 1.6 1.7 0.9 2.0 0.1 0.0 1.2 0.3 0.3 0.7 0.8 0.5 0.8 0.3 0.5 1.3 0.2 0.4
+[262] 1.0 0.6 1.1 0.8 1.9 0.7 0.0 0.8 1.2 0.6 0.6 0.3 0.7 1.9 1.0 1.4 0.3 2.0 0.1 1.8 0.0 0.7 1.3 0.0 0.7 0.4 0.2 2.7 5.6
+[291] 1.3 1.1 0.2 0.9 1.5 0.5 0.3 2.6 2.4 1.5
+
+> R <- 1000
+> bootmedian <- numeric(R)
+> for (i in 1:R) {
++     bootsample <- sample(waittime, size=length(waittime), replace=TRUE)
++     bootmedian[i] <- median(bootsample)
++ }
+> sd(bootmedian) 
+[1] 0.05543675
+> hist(bootmedian)
+
+>  library(boot)
+>   mymean <- function(d,i) mean(d[i])
+>   myboot <- boot(waittime, mymean, R=1000)
+>   boot.ci(myboot, type="perc")
+BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+Based on 1000 bootstrap replicates
+
+CALL : 
+boot.ci(boot.out = myboot, type = "perc")
+
+Intervals : 
+Level     Percentile     
+95%   ( 0.909,  1.111 )  
+Calculations and Intervals on Original Scale
+
+> t.test(waittime)
+
+	One Sample t-test
+
+data:  waittime
+t = 18.6085, df = 299, p-value < 2.2e-16
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ 0.9049764 1.1190236
+sample estimates:
+mean of x 
+    1.012 
+
+>  mymedian <- function(d,i) median(d[i])
+>  myboot <- boot(waittime, mymedian, R=1000)
+>  boot.ci(myboot, type="perc")
+BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+Based on 1000 bootstrap replicates
+
+CALL : 
+boot.ci(boot.out = myboot, type = "perc")
+
+Intervals : 
+Level     Percentile     
+95%   ( 0.7,  0.9 )  
+Calculations and Intervals on Original Scale

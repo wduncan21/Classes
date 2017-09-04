@@ -1,0 +1,16 @@
+TITLE: WAISR Standardization data males 3 factors
+DATA: FILE = jwaisrm.dat;
+VARIABLE: NAMES ARE sex, info digs voca arit comp simi
+            picc pica blkd obja digy;
+	    USEVARIABLES ARE info-digy;
+ANALYSIS: TYPE = GENERAL;
+          ITERATIONS=3000;
+          ESTIMATOR=ML;
+MODEL: f1 BY voca, info*.5, comp*.5 simi*.5;
+       f2 BY blkd, picc*.5, pica*.5, obja*.5;
+       f3 BY arit digs*.5 digy*.5;
+OUTPUT:  SAMPSTAT;
+         MODINDICES;
+         STAND;
+	   RES;
+	   TECH1;

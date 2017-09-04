@@ -1,0 +1,13 @@
+TITLE: WAISR Standardization data males two factor indep cluster (congeneric)
+DATA: FILE = JWAISRM.dat;
+VARIABLE: NAMES ARE sex, info digs voca arit comp simi
+            picc pica blkd obja digy;
+	    USEVARIABLES ARE info voca comp simi picc pica blkd;
+ANALYSIS: TYPE = GENERAL;
+          ITERATIONS=3000;
+          ESTIMATOR=ML;
+MODEL:    F1 BY info* voca@1 comp simi;
+          F2 by picc* pica blkd@1;
+OUTPUT: sampstat standardized residual mod(0) tech1;
+
+
